@@ -1,0 +1,151 @@
+﻿namespace User_Control
+{
+    partial class ListView
+    {
+        /// <summary> 
+        /// 필수 디자이너 변수입니다.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 사용 중인 모든 리소스를 정리합니다.
+        /// </summary>
+        /// <param name="disposing">관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 구성 요소 디자이너에서 생성한 코드
+
+        /// <summary> 
+        /// 디자이너 지원에 필요한 메서드입니다. 
+        /// 이 메서드의 내용을 코드 편집기로 수정하지 마세요.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
+            this.SimpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // listBoxControl1
+            // 
+            this.listBoxControl1.Appearance.BackColor = System.Drawing.Color.White;
+            this.listBoxControl1.Appearance.BackColor2 = System.Drawing.Color.White;
+            this.listBoxControl1.Appearance.BorderColor = System.Drawing.Color.Silver;
+            this.listBoxControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxControl1.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.listBoxControl1.Appearance.Options.UseBackColor = true;
+            this.listBoxControl1.Appearance.Options.UseBorderColor = true;
+            this.listBoxControl1.Appearance.Options.UseFont = true;
+            this.listBoxControl1.Appearance.Options.UseForeColor = true;
+            this.listBoxControl1.AppearanceDisabled.BorderColor = System.Drawing.Color.Gray;
+            this.listBoxControl1.AppearanceDisabled.Options.UseBorderColor = true;
+            this.listBoxControl1.AppearanceSelected.BackColor = System.Drawing.Color.LightBlue;
+            this.listBoxControl1.AppearanceSelected.BackColor2 = System.Drawing.Color.LightBlue;
+            this.listBoxControl1.AppearanceSelected.BorderColor = System.Drawing.SystemColors.MenuHighlight;
+            this.listBoxControl1.AppearanceSelected.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.listBoxControl1.AppearanceSelected.Options.UseBackColor = true;
+            this.listBoxControl1.AppearanceSelected.Options.UseBorderColor = true;
+            this.listBoxControl1.AppearanceSelected.Options.UseForeColor = true;
+            this.listBoxControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.listBoxControl1.ColumnWidth = 400;
+            this.listBoxControl1.DisplayMember = "Name";
+            this.listBoxControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxControl1.HorzScrollStep = 1;
+            this.listBoxControl1.Location = new System.Drawing.Point(0, 32);
+            this.listBoxControl1.LookAndFeel.SkinMaskColor = System.Drawing.SystemColors.HotTrack;
+            this.listBoxControl1.LookAndFeel.SkinMaskColor2 = System.Drawing.SystemColors.HotTrack;
+            this.listBoxControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.listBoxControl1.Name = "listBoxControl1";
+            this.listBoxControl1.ShowFocusRect = false;
+            this.listBoxControl1.Size = new System.Drawing.Size(255, 295);
+            this.listBoxControl1.TabIndex = 0;
+            this.listBoxControl1.UseDisabledStatePainter = false;
+            this.listBoxControl1.SelectedIndexChanged += new System.EventHandler(this.listBoxControl1_SelectedIndexChanged);
+            this.listBoxControl1.Click += new System.EventHandler(this.listBoxControl1_Click);
+            // 
+            // SimpleButton
+            // 
+            this.SimpleButton.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.SimpleButton.AllowFocus = false;
+            this.SimpleButton.Appearance.BackColor = System.Drawing.Color.White;
+            this.SimpleButton.Appearance.BackColor2 = System.Drawing.Color.White;
+            this.SimpleButton.Appearance.BorderColor = System.Drawing.SystemColors.HotTrack;
+            this.SimpleButton.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.SimpleButton.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.SimpleButton.Appearance.Options.UseBackColor = true;
+            this.SimpleButton.Appearance.Options.UseBorderColor = true;
+            this.SimpleButton.Appearance.Options.UseFont = true;
+            this.SimpleButton.Appearance.Options.UseForeColor = true;
+            this.SimpleButton.Appearance.Options.UseImage = true;
+            this.SimpleButton.Appearance.Options.UseTextOptions = true;
+            this.SimpleButton.AppearanceDisabled.BorderColor = System.Drawing.Color.Silver;
+            this.SimpleButton.AppearanceDisabled.Options.UseBorderColor = true;
+            this.SimpleButton.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.SimpleButton.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.SimpleButton.AppearanceHovered.Options.UseBackColor = true;
+            this.SimpleButton.AppearanceHovered.Options.UseForeColor = true;
+            this.SimpleButton.AppearancePressed.BackColor = System.Drawing.SystemColors.Highlight;
+            this.SimpleButton.AppearancePressed.Options.UseBackColor = true;
+            this.SimpleButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SimpleButton.Enabled = false;
+            this.SimpleButton.Location = new System.Drawing.Point(0, 0);
+            this.SimpleButton.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SimpleButton.LookAndFeel.SkinName = "Office 2016 Black";
+            this.SimpleButton.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
+            this.SimpleButton.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.SimpleButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SimpleButton.Name = "SimpleButton";
+            this.SimpleButton.ShowToolTips = false;
+            this.SimpleButton.Size = new System.Drawing.Size(255, 32);
+            this.SimpleButton.TabIndex = 8;
+            this.SimpleButton.Text = "Name";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.listBoxControl1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.SimpleButton, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(255, 327);
+            this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // ListView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Name = "ListView";
+            this.Size = new System.Drawing.Size(255, 327);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        private DevExpress.XtraEditors.SimpleButton SimpleButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+    }
+}

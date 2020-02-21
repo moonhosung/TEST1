@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2B20D30-96FA-40A3-BEED-07675BC6BAFE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>User_Control</RootNamespace>
+    <AssemblyName>User_Control</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ConformalCoating\bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ConformalCoating\bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.1.UI, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDiagram.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDialogs.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arrow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Arrow.Designer.cs">
+      <DependentUpon>Arrow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckEdit.Designer.cs">
+      <DependentUpon>CheckEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComboBox.Designer.cs">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditBox.Designer.cs">
+      <DependentUpon>EditBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Alarm_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Alarm_List.Designer.cs">
+      <DependentUpon>GridView_Alarm_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Position_Axis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Position_Axis.Designer.cs">
+      <DependentUpon>GridView_Position_Axis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Position.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Position.Designer.cs">
+      <DependentUpon>GridView_Position.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Log.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Log.Designer.cs">
+      <DependentUpon>GridView_Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Flow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Flow.Designer.cs">
+      <DependentUpon>GridView_Flow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Image.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Image.Designer.cs">
+      <DependentUpon>GridView_Image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Area.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Area.Designer.cs">
+      <DependentUpon>GridView_Area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Alarm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Alarm.Designer.cs">
+      <DependentUpon>GridView_Alarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Job_MTBI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Job_MTBI.Designer.cs">
+      <DependentUpon>GridView_Job_MTBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Output.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Output.Designer.cs">
+      <DependentUpon>GridView_Output.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Log_Record.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Log_Record.Designer.cs">
+      <DependentUpon>GridView_Log_Record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Input.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Input.Designer.cs">
+      <DependentUpon>GridView_Input.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Monitoring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Monitoring.Designer.cs">
+      <DependentUpon>GridView_Monitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Model.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Model.Designer.cs">
+      <DependentUpon>GridView_Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Motion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView_Motion.Designer.cs">
+      <DependentUpon>GridView_Motion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridView.Designer.cs">
+      <DependentUpon>GridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToggleButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToggleButton.Designer.cs">
+      <DependentUpon>ToggleButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Light_Button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Light_Button.Designer.cs">
+      <DependentUpon>Light_Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListView.Designer.cs">
+      <DependentUpon>ListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RoundButton_Short.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoundButton_Short.designer.cs">
+      <DependentUpon>RoundButton_Short.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckButton.Designer.cs">
+      <DependentUpon>CheckButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Round_Button_Long.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Round_Button_Long.Designer.cs">
+      <DependentUpon>Round_Button_Long.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TabControl.Designer.cs">
+      <DependentUpon>TabControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Arrow.resx">
+      <DependentUpon>Arrow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Button.resx">
+      <DependentUpon>Button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckEdit.resx">
+      <DependentUpon>CheckEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComboBox.resx">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBox.resx">
+      <DependentUpon>EditBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Alarm_List.resx">
+      <DependentUpon>GridView_Alarm_List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Position_Axis.resx">
+      <DependentUpon>GridView_Position_Axis.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Position.resx">
+      <DependentUpon>GridView_Position.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Log.resx">
+      <DependentUpon>GridView_Log.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Flow.resx">
+      <DependentUpon>GridView_Flow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Image.resx">
+      <DependentUpon>GridView_Image.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Area.resx">
+      <DependentUpon>GridView_Area.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Alarm.resx">
+      <DependentUpon>GridView_Alarm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Job_MTBI.resx">
+      <DependentUpon>GridView_Job_MTBI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Output.resx">
+      <DependentUpon>GridView_Output.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Log_Record.resx">
+      <DependentUpon>GridView_Log_Record.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Input.resx">
+      <DependentUpon>GridView_Input.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Monitoring.resx">
+      <DependentUpon>GridView_Monitoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Model.resx">
+      <DependentUpon>GridView_Model.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView_Motion.resx">
+      <DependentUpon>GridView_Motion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridView.resx">
+      <DependentUpon>GridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToggleButton.resx">
+      <DependentUpon>ToggleButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Light_Button.resx">
+      <DependentUpon>Light_Button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListView.resx">
+      <DependentUpon>ListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoundButton_Short.resx">
+      <DependentUpon>RoundButton_Short.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckButton.resx">
+      <DependentUpon>CheckButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Round_Button_Long.resx">
+      <DependentUpon>Round_Button_Long.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabControl.resx">
+      <DependentUpon>TabControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\DataSources\Button.datasource" />
+    <None Include="Properties\DataSources\GridView.datasource" />
+    <None Include="Properties\DataSources\GridView.SampleInfo.datasource" />
+    <None Include="Properties\DataSources\ListView.datasource" />
+    <None Include="Properties\DataSources\RoundButton_Short.datasource" />
+    <None Include="Properties\DataSources\User_Control.Properties.Resources.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\!.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_img_light_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_img_light_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_01_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_01_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_01_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_toggle_01_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_toggle_01_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_img_3light_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_img_3light_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_img_3light_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_img_3light_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_img_3light_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_icon_check_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_icon_check_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_icon_btlight_off1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_icon_btlight_on1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_eqp_icon_btlight_progress1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_conv_icon_statuslight_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_conv_icon_statuslight_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maint_conv_icon_statuslight_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_checkbox_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_checkbox_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_checkbox_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_toggle_02_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\common_bt_toggle_02_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow2_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow2_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow2_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow3_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow3_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow3_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow4_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow4_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow4_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_x_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_bt_jog_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_bt_jog_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_a,b,c,r_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_a,b,c,r_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_nextpage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_selectpage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_x_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_x_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_y_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_y_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_z_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_jog_ic_z_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarms_alarms-ic_alarm_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarms_alarms-ic_alarm_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarms_alarms-ic_warning_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarms_alarms-ic_warning_02.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
