@@ -14,6 +14,12 @@ namespace TEST1
     public partial class Form1_1 : UserControl
     {
 
+        int LineSizeX = 30;
+        int LineSizeY = 330;
+        int LineGap = 80;
+
+        int CursorX, CursorY;
+
         private static Form1_1 theInstance = null;
         public static Form1_1 CreateInstance()
         {
@@ -126,9 +132,6 @@ namespace TEST1
 
         private void PB_FARM_Paint(object sender, PaintEventArgs e)
         {
-            int LineSizeX = 30;
-            int LineSizeY = 330;
-            int LineGap = 80;
             SolidBrush br = new SolidBrush(Color.FromArgb(100, Color.Blue));
             SolidBrush br2 = new SolidBrush(Color.FromArgb(180, Color.Red));
             if(MainForm.position.position != Position.STOP)
@@ -136,8 +139,11 @@ namespace TEST1
                 e.Graphics.FillRectangle(br, new Rectangle(40, 10, LineSizeX, LineSizeY));
                 e.Graphics.FillRectangle(br, new Rectangle(40 + LineGap, 10, LineSizeX, LineSizeY));
             }
-            
 
+            if(MainForm.In)
+            {
+                e.Graphics.FillRectangle(br, new Rectangle(100, 100, 100, 100));
+            }
             //for(int i=0;i<10;i++)
             //{
             //    e.Graphics.FillEllipse(br2, 10, 10 + (i * 30), 30, 30);
@@ -145,7 +151,44 @@ namespace TEST1
             //    e.Graphics.FillEllipse(br2, 120, 10 + (i * 30), 30, 30);
             //    e.Graphics.FillEllipse(br2, 150, 10 + (i * 30), 30, 30);
             //}
-            
+
+        }
+
+        private void PB_FARM_Click(object sender, EventArgs e)
+        {
+            if (CursorX > 100 && CursorX < 200)
+            {
+                if (CursorY > 100 && CursorY < 200)
+                {
+                    MainForm.Message_popup.ShowPopup("Form Open1", false);
+                }
+            }
+        }
+
+        private void PB_FARM_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            CursorX = e.Location.X;
+            CursorY = e.Location.Y;
+
+            if (CursorX > 100 && CursorX < 200)
+            {
+                if (CursorY > 100 && CursorY < 200)
+                {
+                    MainForm.In = true;
+                }
+                else
+                {
+                    MainForm.In = false;
+                }
+            }
+            else
+            {
+                MainForm.In = false;
+            }
+               
+
+            PB_FARM.Invalidate();
         }
     }
 }

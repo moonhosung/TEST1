@@ -21,7 +21,7 @@ namespace TEST1
         private Form1_3 form1_3 = Form1_3.CreateInstance();
         public static OpacityForm opacityForm = OpacityForm.CreateInstance();
         public static Message_Popup Message_popup = Message_Popup.CreateInstance();
-
+        public static bool In = false;
         public static MovePosition position = new MovePosition();
         public static List<MovePosition> movePositions = new List<MovePosition>();
 

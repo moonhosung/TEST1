@@ -30,8 +30,8 @@ namespace User_Control
             }
             if(!IsCheck)
             { 
-            this.SimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
-                this.SimpleButton.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
+            this.SimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+                this.SimpleButton.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
 
                 this.SimpleButton.Appearance.ForeColor = System.Drawing.Color.White;
                 IsCheck = true;
@@ -41,7 +41,7 @@ namespace User_Control
                 this.SimpleButton.Appearance.BackColor = System.Drawing.Color.White;
                 this.SimpleButton.Appearance.BackColor2 = System.Drawing.Color.White;
 
-                this.SimpleButton.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
+                this.SimpleButton.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
                 IsCheck = false;
             }
         }
@@ -68,11 +68,11 @@ namespace User_Control
                 this.SimpleButton.Appearance.BackColor = System.Drawing.Color.White;
                 this.SimpleButton.Appearance.BackColor2 = System.Drawing.Color.White;
 
-                this.SimpleButton.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
+                this.SimpleButton.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
                 return;
             }
-            this.SimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
-            this.SimpleButton.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
+            this.SimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+            this.SimpleButton.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
 
             this.SimpleButton.Appearance.ForeColor = System.Drawing.Color.White;
             IsCheck = true;

@@ -65,7 +65,9 @@
             this.PB_FARM.Size = new System.Drawing.Size(924, 559);
             this.PB_FARM.TabIndex = 1;
             this.PB_FARM.TabStop = false;
+            this.PB_FARM.Click += new System.EventHandler(this.PB_FARM_Click);
             this.PB_FARM.Paint += new System.Windows.Forms.PaintEventHandler(this.PB_FARM_Paint);
+            this.PB_FARM.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PB_FARM_MouseMove);
             // 
             // Label1
             // 

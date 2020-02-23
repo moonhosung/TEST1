@@ -59,7 +59,7 @@
             // 
             // LB_LOGIN_TITLE
             // 
-            this.LB_LOGIN_TITLE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
+            this.LB_LOGIN_TITLE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
             this.LB_LOGIN_TITLE.Dock = System.Windows.Forms.DockStyle.Top;
             this.LB_LOGIN_TITLE.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_LOGIN_TITLE.ForeColor = System.Drawing.Color.White;
@@ -153,7 +153,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
             this.button1.BackgroundImage = global::TEST1.Properties.Resources.popup_ic_x;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.FlatAppearance.BorderSize = 0;
