@@ -22,7 +22,7 @@ namespace TEST1
         double StartY = 58;
         double LocationSizeX = 37;
         double LocationSizeY = 36;
-        int LineGap = 80;
+        int LineGap = 130;
         int LocationCountY = 9;
         int LocationCountX = 6;
 
@@ -168,20 +168,27 @@ namespace TEST1
                 //e.Graphics.FillRectangle(br, new Rectangle(40, 10, LineSizeX, LineSizeY));
                // e.Graphics.FillRectangle(br, new Rectangle(40 + LineGap, 10, LineSizeX, LineSizeY));
             }
-
-            for (int i = 0; i < LocationCountY; i++)
+            for (int j = 0; j < LocationCountX; j++)
             {
-                for (int j = 0; j < LocationCountX; j++)
+                for (int i = 0; i < LocationCountY; i++)
                 {
-                    e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
-                    e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX + (int)LocationSizeX - 1, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
-                    if (MainForm.Line_1[i])
+                    e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX+((int)LineGap*j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
+                    e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX +((int)LineGap * j)+(int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
+                    if (MainForm.Line_1[i]&& j==0)
                     {
-                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
                     }
-                    if (MainForm.Line_2[i])
+                    if (MainForm.Line_2[i] && j == 0)
                     {
-                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + (int)LocationSizeX - 1, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                    }
+                    if (MainForm.Line_3[i] && j == 1)
+                    {
+                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                    }
+                    if (MainForm.Line_4[i] && j == 1)
+                    {
+                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
                     }
                 }
             }
@@ -207,6 +214,14 @@ namespace TEST1
                 {
                     MainForm.Message_popup.ShowPopup("Form Open2_" + (i + 1).ToString(), false);
                 }
+                if (MainForm.Line_3[i])
+                {
+                    MainForm.Message_popup.ShowPopup("Form Open3_" + (i + 1).ToString(), false);
+                }
+                if (MainForm.Line_4[i])
+                {
+                    MainForm.Message_popup.ShowPopup("Form Open4_" + (i + 1).ToString(), false);
+                }
             }
         }
 
@@ -218,53 +233,71 @@ namespace TEST1
 
             for(int i=0;i< LocationCountY; i++)
             {
-                if (CursorX > StartX && CursorX < StartX+LocationSizeX)
+                for (int j = 0; j < LocationCountX; j++)
                 {
-                    if (CursorY > StartY+(i*LocationSizeY) && CursorY < StartY + ((i+1) * LocationSizeY))
+                   
+                    if (CursorX > (int)StartX + ((int)LineGap * j) && CursorX < (int)StartX + ((int)LineGap * j) + (int)LocationSizeX)
                     {
-                        if (!MainForm.Line_1[i])
+                        if (CursorY > StartY + (i * LocationSizeY) && CursorY < StartY + ((i + 1) * LocationSizeY))
                         {
-                            SetProgress(10*(i+1));
-                            MainForm.Line_1[i] = true;
+                            if (!MainForm.Line_1[i]&&j==0)
+                            {
+                                SetProgress(10 * (i + 1));
+                                MainForm.Line_2[i] = false;
+                                MainForm.Line_1[i] = true;
+                                MainForm.Line_3[i] = false;
+                                MainForm.Line_4[i] = false;
+                            }
+                            else if (!MainForm.Line_3[i] && j == 1)
+                            {
+                                SetProgress(10 * (i + 1));
+                                MainForm.Line_2[i] = false;
+                                MainForm.Line_3[i] = true;
+                                MainForm.Line_1[i] = false;
+                                MainForm.Line_4[i] = false;
+                            }
                         }
+                        else
+                        {
+                            MainForm.Line_1[i] = false;
+                            MainForm.Line_2[i] = false;
+                            MainForm.Line_3[i] = false;
+                            MainForm.Line_4[i] = false;
+                        }
+                    }
 
-                    }
-                    else
+                    if (CursorX > (int)StartX + ((int)LineGap * j) + (int)LocationSizeX && CursorX < (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX*2))
                     {
-                        MainForm.Line_1[i] = false;
+                        if (CursorY > StartY + (i * LocationSizeY) && CursorY < StartY + ((i + 1) * LocationSizeY))
+                        {
+                            if (!MainForm.Line_2[i] && j == 0)
+                            {
+                                SetProgress(10 * (i + 1));
+                                MainForm.Line_2[i] = true;
+                                MainForm.Line_1[i] = false;
+                                MainForm.Line_3[i] = false;
+                                MainForm.Line_4[i] = false;
+                            }
+                            else if (!MainForm.Line_4[i] && j == 1)
+                            {
+                                SetProgress(10 * (i + 1));
+                                MainForm.Line_2[i] = false;
+                                MainForm.Line_3[i] = false;
+                                MainForm.Line_1[i] = false;
+                                MainForm.Line_4[i] = true;
+                            }
+                        }
+                        else
+                        {
+                            MainForm.Line_1[i] = false;
+                            MainForm.Line_2[i] = false;
+                            MainForm.Line_3[i] = false;
+                            MainForm.Line_4[i] = false;
+                        }
                     }
-                }
-                else
-                {
-                    MainForm.Line_1[i] = false;
                 }
             }
-
-            for (int i = 0; i < LocationCountY; i++)
-            {
-                if (CursorX > StartX + (LocationSizeX) && CursorX < StartX + (LocationSizeX*2))
-                {
-                    if (CursorY > StartY + (i * LocationSizeY) && CursorY < StartY + ((i + 1) * LocationSizeY))
-                    {
-                        if (!MainForm.Line_2[i])
-                        {
-                            SetProgress(10 * (i + 1));
-                            MainForm.Line_2[i] = true;
-                        }
-
-                    }
-                    else
-                    {
-                        MainForm.Line_2[i] = false;
-                    }
-                }
-                else
-                {
-                    MainForm.Line_2[i] = false;
-                }
-            }
-
-
+            
             PB_FARM.Invalidate();
         }
 
