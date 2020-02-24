@@ -137,6 +137,9 @@
     <EmbeddedResource Include="Message_Popup.resx">
       <DependentUpon>Message_Popup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OpacityForm.resx">
+      <DependentUpon>OpacityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -190,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\popup\popup_ic_x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\tomato.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

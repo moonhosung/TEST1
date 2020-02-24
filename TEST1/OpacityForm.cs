@@ -110,5 +110,14 @@ namespace TEST1
         private void OpacityForm_Load(object sender, EventArgs e)
         {
         }
+
+        private void OpacityForm_Activated(object sender, EventArgs e)
+        {
+            if(!MainForm.Message_popup.GetInPopup())
+            {
+                MainForm.LoginPopup.Activate();
+            }
+            
+        }
     }
 }

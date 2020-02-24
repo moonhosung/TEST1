@@ -152,5 +152,10 @@ namespace TEST1
             LB_MESSAGE_CONTENTS.Text = "";
             LB_MESSAGE_TITLE.Text = "Message";
         }
+
+        public bool GetInPopup()
+        {
+            return InPopup;
+        }
     }
 }

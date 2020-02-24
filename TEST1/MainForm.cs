@@ -19,9 +19,16 @@ namespace TEST1
         private Form1_1 form1_1 = Form1_1.CreateInstance();
         private Form1_2 form1_2 = Form1_2.CreateInstance();
         private Form1_3 form1_3 = Form1_3.CreateInstance();
+
+        public static LoginDlg LoginPopup = LoginDlg.CreateInstance();
         public static OpacityForm opacityForm = OpacityForm.CreateInstance();
         public static Message_Popup Message_popup = Message_Popup.CreateInstance();
-        public static bool In = false;
+        public static List<bool> Line_1 =  new List<bool>();
+        public static List<bool> Line_2 = new List<bool>();
+        public static List<bool> Line_3 = new List<bool>();
+        public static List<bool> Line_4 = new List<bool>();
+        public static List<bool> Line_5 = new List<bool>();
+        public static List<bool> Line_6 = new List<bool>();
         public static MovePosition position = new MovePosition();
         public static List<MovePosition> movePositions = new List<MovePosition>();
 
@@ -172,11 +179,10 @@ namespace TEST1
         {
             MainForm.opacityForm.Start = true;
             MainForm.opacityForm.ShowPopup();
-            LoginDlg popup = new LoginDlg();
 
-            popup.DesktopLocation = new Point(1920 / 2 - (popup.Width / 2), 1080 / 2 - (popup.Height / 2));
-            popup.StartPosition = FormStartPosition.Manual;
-            popup.Show();
+            LoginPopup.DesktopLocation = new Point(1920 / 2 - (LoginPopup.Width / 2), 1080 / 2 - (LoginPopup.Height / 2));
+            LoginPopup.StartPosition = FormStartPosition.Manual;
+            LoginPopup.ShowDialog();
         }
     }
 }
