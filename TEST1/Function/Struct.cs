@@ -26,6 +26,14 @@ namespace TEST1.Function
         LINE2_END
     }
 
+    public enum SelectMode
+    {
+        GROWTH,
+        PEST,
+        HARVEST
+    }
+
+
     public struct SetupIO_Struct
     {
         internal bool[] IOcheckIn1;

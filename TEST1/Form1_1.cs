@@ -16,16 +16,20 @@ namespace TEST1
 {
     public partial class Form1_1 : UserControl
     {
-        
+
+        Series[] series = new Series[3];
         int CursorX, CursorY;
         double StartX = 52;
         double StartY = 58;
         double LocationSizeX = 37;
         double LocationSizeY = 36;
-        int LineGap = 130;
+        int LineGap = 50;
         int LocationCountY = 9;
         int LocationCountX = 6;
+        int PestLineCount = 5;
+        Random r = new Random();
 
+        int r1, r2;
         DoughnutSeriesView doughnutSeriesView1 = new DoughnutSeriesView();
 
         private static Form1_1 theInstance = null;
@@ -46,7 +50,6 @@ namespace TEST1
         private void Form1_1_Load(object sender, EventArgs e)
         {
             button1.SetText("Start");
-
             for (int i = 0; i < LocationCountY; i++)
             {
                 MainForm.Line_1.Add(false);
@@ -56,8 +59,12 @@ namespace TEST1
                 MainForm.Line_5.Add(false);
                 MainForm.Line_6.Add(false);
             }
-           // StartX -= PB_FARM.Location.X;
-            //StartY -= PB_FARM.Location.Y;
+            for (int i = 0; i < PestLineCount; i++)
+            {
+                MainForm.PestLines.Add(false);
+            }
+                // StartX -= PB_FARM.Location.X;
+                //StartY -= PB_FARM.Location.Y;
 
             BTN_GROWTH.SetText("생육");
             BTN_HARVEST.SetText("수확");
@@ -66,6 +73,15 @@ namespace TEST1
             BTN_GROWTH.SetType(true);
             BTN_HARVEST.SetType(true);
             BTN_PEST.SetType(true);
+            MainForm.Mode = SelectMode.GROWTH;
+            r1 = r.Next(0, 100);
+            r2 = r.Next(0, 100);
+
+            ChartInit();
+            ChartUpdate(0, 2, 3);
+            ChartUpdate(1, 2, 3);
+            ChartUpdate(2, 3, 4);
+            ChartUpdate(3, 3, 4);
         }
 
 
@@ -161,67 +177,113 @@ namespace TEST1
 
         private void PB_FARM_Paint(object sender, PaintEventArgs e)
         {
-            SolidBrush br = new SolidBrush(Color.FromArgb(100, Color.FromArgb(200,20,40)));
+            SolidBrush br = new SolidBrush(Color.FromArgb(100, Color.FromArgb(200, 20, 40)));
             SolidBrush br2 = new SolidBrush(Color.FromArgb(180, Color.Red));
-            if(MainForm.position.position != Position.STOP)
+            if (MainForm.position.position != Position.STOP)
             {
                 //e.Graphics.FillRectangle(br, new Rectangle(40, 10, LineSizeX, LineSizeY));
-               // e.Graphics.FillRectangle(br, new Rectangle(40 + LineGap, 10, LineSizeX, LineSizeY));
+                // e.Graphics.FillRectangle(br, new Rectangle(40 + LineGap, 10, LineSizeX, LineSizeY));
             }
             for (int j = 0; j < LocationCountX; j++)
             {
                 for (int i = 0; i < LocationCountY; i++)
                 {
-                    e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX+((int)LineGap*j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
-                    e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX +((int)LineGap * j)+(int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
-                    if (MainForm.Line_1[i]&& j==0)
+                    if (r1 > 60)
                     {
-                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        e.Graphics.DrawImage(global::TEST1.Properties.Resources.green_tomato, (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
                     }
-                    if (MainForm.Line_2[i] && j == 0)
+                    else if (r1 > 30)
                     {
-                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        e.Graphics.DrawImage(global::TEST1.Properties.Resources.yellow_tomato, (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
                     }
-                    if (MainForm.Line_3[i] && j == 1)
+                    else
                     {
-                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
                     }
-                    if (MainForm.Line_4[i] && j == 1)
+                    if (r2 > 60)
                     {
-                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        e.Graphics.DrawImage(global::TEST1.Properties.Resources.green_tomato, (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX*2) * j + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
+                    }
+                    else if (r2 > 30)
+                    {
+                        e.Graphics.DrawImage(global::TEST1.Properties.Resources.yellow_tomato, (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2) * j + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
+                    }
+                    else
+                    {
+                        e.Graphics.DrawImage(global::TEST1.Properties.Resources.tomato, (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2) * j + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY);
                     }
                 }
             }
-            //for(int i=0;i<10;i++)
-            //{
-            //    e.Graphics.FillEllipse(br2, 10, 10 + (i * 30), 30, 30);
-            //    e.Graphics.FillEllipse(br2, 40, 10+(i*30), 30, 30);
-            //    e.Graphics.FillEllipse(br2, 120, 10 + (i * 30), 30, 30);
-            //    e.Graphics.FillEllipse(br2, 150, 10 + (i * 30), 30, 30);
-            //}
 
+
+            if (MainForm.Mode == SelectMode.GROWTH)
+            {
+                for (int j = 0; j < LocationCountX; j++)
+                {
+                    for (int i = 0; i < LocationCountY; i++)
+                    {
+                        if (MainForm.Line_1[i] && j == 0)
+                        {
+                            e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        }
+                        if (MainForm.Line_2[i] && j == 0)
+                        {
+                            e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        }
+                        if (MainForm.Line_3[i] && j == 1)
+                        {
+                            e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        }
+                        if (MainForm.Line_4[i] && j == 1)
+                        {
+                            e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        }
+                    }
+                }
+            }
+
+
+            if (MainForm.Mode == SelectMode.PEST)
+            {
+                for (int i = 0; i < PestLineCount; i++)
+                {
+                    if (MainForm.PestLines[i])
+                    {
+                        e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * i) + ((int)LocationSizeX * 2 * i) + (int)LocationSizeX*2, (int)StartY, (int)LineGap/*+( (int)LocationSizeX * 2)*/, (int)(LocationCountY * LocationSizeY)));
+                       
+                    }
+                }
+            }
         }
 
         private void PB_FARM_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < LocationCountY; i++)
+            if (MainForm.Mode == SelectMode.GROWTH)
             {
-                if (MainForm.Line_1[i])
+                for (int i = 0; i < LocationCountY; i++)
                 {
-                    MainForm.Message_popup.ShowPopup("Form Open1_"+(i+1).ToString(), false);
+                    if (MainForm.Line_1[i])
+                    {
+                        MainForm.Message_popup.ShowPopup("Form Open1_" + (i + 1).ToString(), false);
+                    }
+                    if (MainForm.Line_2[i])
+                    {
+                        MainForm.Message_popup.ShowPopup("Form Open2_" + (i + 1).ToString(), false);
+                    }
+                    if (MainForm.Line_3[i])
+                    {
+                        MainForm.Message_popup.ShowPopup("Form Open3_" + (i + 1).ToString(), false);
+                    }
+                    if (MainForm.Line_4[i])
+                    {
+                        MainForm.Message_popup.ShowPopup("Form Open4_" + (i + 1).ToString(), false);
+                    }
                 }
-                if (MainForm.Line_2[i])
-                {
-                    MainForm.Message_popup.ShowPopup("Form Open2_" + (i + 1).ToString(), false);
-                }
-                if (MainForm.Line_3[i])
-                {
-                    MainForm.Message_popup.ShowPopup("Form Open3_" + (i + 1).ToString(), false);
-                }
-                if (MainForm.Line_4[i])
-                {
-                    MainForm.Message_popup.ShowPopup("Form Open4_" + (i + 1).ToString(), false);
-                }
+            }
+            if (MainForm.Mode == SelectMode.PEST)
+            {
+                if(MainForm.PestLines[0])
+                MainForm.Message_popup.ShowPopup("방제 팝업", false);
             }
         }
 
@@ -231,73 +293,100 @@ namespace TEST1
             CursorX = e.Location.X;
             CursorY = e.Location.Y;
 
-            for(int i=0;i< LocationCountY; i++)
+            if (MainForm.Mode == SelectMode.GROWTH)
             {
-                for (int j = 0; j < LocationCountX; j++)
+                for (int i = 0; i < LocationCountY; i++)
                 {
-                   
-                    if (CursorX > (int)StartX + ((int)LineGap * j) && CursorX < (int)StartX + ((int)LineGap * j) + (int)LocationSizeX)
+                    for (int j = 0; j < LocationCountX; j++)
                     {
-                        if (CursorY > StartY + (i * LocationSizeY) && CursorY < StartY + ((i + 1) * LocationSizeY))
-                        {
-                            if (!MainForm.Line_1[i]&&j==0)
-                            {
-                                SetProgress(10 * (i + 1));
-                                MainForm.Line_2[i] = false;
-                                MainForm.Line_1[i] = true;
-                                MainForm.Line_3[i] = false;
-                                MainForm.Line_4[i] = false;
-                            }
-                            else if (!MainForm.Line_3[i] && j == 1)
-                            {
-                                SetProgress(10 * (i + 1));
-                                MainForm.Line_2[i] = false;
-                                MainForm.Line_3[i] = true;
-                                MainForm.Line_1[i] = false;
-                                MainForm.Line_4[i] = false;
-                            }
-                        }
-                        else
-                        {
-                            MainForm.Line_1[i] = false;
-                            MainForm.Line_2[i] = false;
-                            MainForm.Line_3[i] = false;
-                            MainForm.Line_4[i] = false;
-                        }
-                    }
 
-                    if (CursorX > (int)StartX + ((int)LineGap * j) + (int)LocationSizeX && CursorX < (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX*2))
-                    {
-                        if (CursorY > StartY + (i * LocationSizeY) && CursorY < StartY + ((i + 1) * LocationSizeY))
+                        if (CursorX > (int)StartX + ((int)LineGap * j) +((int)LocationSizeX*2*j) && CursorX < (int)StartX + ((int)LineGap * j) + (int)LocationSizeX + ((int)LocationSizeX * 2 * j))
                         {
-                            if (!MainForm.Line_2[i] && j == 0)
+                            if (CursorY > StartY + (i * LocationSizeY) && CursorY < StartY + ((i + 1) * LocationSizeY))
                             {
-                                SetProgress(10 * (i + 1));
-                                MainForm.Line_2[i] = true;
+                                if (!MainForm.Line_1[i] && j == 0)
+                                {
+                                    SetProgress(10 * (i + 1));
+                                    MainForm.Line_2[i] = false;
+                                    MainForm.Line_1[i] = true;
+                                    MainForm.Line_3[i] = false;
+                                    MainForm.Line_4[i] = false;
+                                }
+                                else if (!MainForm.Line_3[i] && j == 1)
+                                {
+                                    SetProgress(10 * (i + 1));
+                                    MainForm.Line_2[i] = false;
+                                    MainForm.Line_3[i] = true;
+                                    MainForm.Line_1[i] = false;
+                                    MainForm.Line_4[i] = false;
+                                }
+                            }
+                            else
+                            {
                                 MainForm.Line_1[i] = false;
+                                MainForm.Line_2[i] = false;
                                 MainForm.Line_3[i] = false;
                                 MainForm.Line_4[i] = false;
                             }
-                            else if (!MainForm.Line_4[i] && j == 1)
+                        }
+
+                        if (CursorX > (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j) + (int)LocationSizeX && CursorX < (int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j) + ((int)LocationSizeX * 2))
+                        {
+                            if (CursorY > StartY + (i * LocationSizeY) && CursorY < StartY + ((i + 1) * LocationSizeY))
                             {
-                                SetProgress(10 * (i + 1));
+                                if (!MainForm.Line_2[i] && j == 0)
+                                {
+                                    SetProgress(10 * (i + 1));
+                                    MainForm.Line_2[i] = true;
+                                    MainForm.Line_1[i] = false;
+                                    MainForm.Line_3[i] = false;
+                                    MainForm.Line_4[i] = false;
+                                }
+                                else if (!MainForm.Line_4[i] && j == 1)
+                                {
+                                    SetProgress(10 * (i + 1));
+                                    MainForm.Line_2[i] = false;
+                                    MainForm.Line_3[i] = false;
+                                    MainForm.Line_1[i] = false;
+                                    MainForm.Line_4[i] = true;
+                                }
+                            }
+                            else
+                            {
+                                MainForm.Line_1[i] = false;
                                 MainForm.Line_2[i] = false;
                                 MainForm.Line_3[i] = false;
-                                MainForm.Line_1[i] = false;
-                                MainForm.Line_4[i] = true;
+                                MainForm.Line_4[i] = false;
                             }
-                        }
-                        else
-                        {
-                            MainForm.Line_1[i] = false;
-                            MainForm.Line_2[i] = false;
-                            MainForm.Line_3[i] = false;
-                            MainForm.Line_4[i] = false;
                         }
                     }
                 }
             }
-            
+
+
+            if (MainForm.Mode == SelectMode.PEST)
+            { 
+                for (int i = 0; i < PestLineCount; i++)
+                {
+                    if (CursorX > (int)StartX + ((int)LineGap * i) + ((int)LocationSizeX * 2 * i) + (int)LocationSizeX && CursorX < (int)StartX + ((int)LineGap * (i+1)) + ((int)LocationSizeX * 2 * (i+1)) + (int)LocationSizeX)
+                    {
+                        if (CursorY > StartY && CursorY < StartY + (LocationCountY * LocationSizeY))
+                        {
+                            MainForm.PestLines[i] = true;
+                        }
+                        else
+                        {
+                            MainForm.PestLines[i] = false;
+                        }
+                    }
+                    else
+                    {
+                        MainForm.PestLines[i] = false;
+                    }
+                }
+            }
+
+
             PB_FARM.Invalidate();
         }
 
@@ -305,18 +394,30 @@ namespace TEST1
         {
             ResetButton();
             BTN_GROWTH.SetCheck(true);
+
+            MainForm.Mode = SelectMode.GROWTH;
+
+            PB_FARM.Invalidate();
         }
 
         private void BTN_PEST_ButtonClick(object sender, EventArgs e)
         {
             ResetButton();
             BTN_PEST.SetCheck(true);
+
+            MainForm.Mode = SelectMode.PEST;
+
+            PB_FARM.Invalidate();
         }
 
         private void BTN_HARVEST_ButtonClick(object sender, EventArgs e)
         {
             ResetButton();
             BTN_HARVEST.SetCheck(true);
+
+            MainForm.Mode = SelectMode.HARVEST;
+
+            PB_FARM.Invalidate();
         }
 
         public void ResetButton()
@@ -357,6 +458,85 @@ namespace TEST1
             doughnutSeriesView1.TotalLabel.Font = new System.Drawing.Font("roboto", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             doughnutSeriesView1.TotalLabel.TextColor = Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
 
+        }
+
+        private void ChartInit()
+        {
+            CHART_GROWTH2.Series.Clear();
+            series[0] = new Series("OK", ViewType.Line);
+            series[1] = new Series("NG", ViewType.Line);
+            series[2] = new Series("TOTAL", ViewType.Line);
+            //ChartControl에 Series 추가            
+            CHART_GROWTH2.Series.Add(series[0]);
+            CHART_GROWTH2.Series.Add(series[1]);
+            CHART_GROWTH2.Series.Add(series[2]);
+            CHART_GROWTH2.CrosshairEnabled = DefaultBoolean.False;
+
+            XYDiagram diagram = (XYDiagram)CHART_GROWTH2.Diagram;
+            diagram.AxisY.WholeRange.MaxValue = 2000;    // y축 최대값     
+            diagram.AxisY.WholeRange.MinValue = 0;   // y축 최소값     
+            diagram.AxisY.WholeRange.Auto = true;      // y축 범위 자동변경 설정  
+            diagram.AxisX.WholeRange.SideMarginsValue = 0;
+            diagram.AxisX.WholeRange.MaxValue = 3;    // x축 최대값     
+            diagram.AxisX.WholeRange.MinValue = 0;   // x축 최소값     
+            ConstantLine zeroLine = new ConstantLine();
+            zeroLine.Color = Color.LightYellow;
+            zeroLine.AxisValue = 0;
+            zeroLine.ShowInLegend = false;
+            diagram.AxisY.ConstantLines.Add(zeroLine);  // y값 0인 x축 생성     
+            diagram.EnableAxisXScrolling = true;   //스크롤과 줌은 절대       
+            diagram.EnableAxisXZooming = true; //true로 하지않도록 한다. 
+
+        }
+
+
+        private void ChartUpdate(int para1, int para2, int para3)
+        {
+            if (series[0].Points.Count > 3) // x축은 10개까지만 값을 출력하게 한다.    
+            {
+                series[0].Points.RemoveAt(0);
+                series[1].Points.RemoveAt(0);
+                series[2].Points.RemoveAt(0);
+            }
+            
+            // DataInsertLog("Process", "Test");
+            // AddLogMessage("Test", 1);
+            DateTime Today = DateTime.Now;
+            CUIInvoke uiInvoke = CUIInvoke.CreateInstance();
+            int OK = 0, NG = 0;
+            string[] tt = { "date", "user", "OK", "NG" };
+            List<string>[] tt2;
+            //tt2 = com.DBSelect("work", tt);
+            //int Year, Month, Day, hour, min;
+            //// for (int i = 0; i < tt2.Count(); i++)
+            //{
+            //    for (int j = 0; j < tt2[0].Count(); j++)
+            //    {
+            //        Year = Int32.Parse(tt2[0][j].Substring(0, 4));
+            //        Month = Int32.Parse(tt2[0][j].Substring(5, 2));
+            //        Day = Int32.Parse(tt2[0][j].Substring(8, 2));
+            //        hour = Int32.Parse(tt2[0][j].Substring(11, 2));
+            //        min = Int32.Parse(tt2[0][j].Substring(14, 2));
+            //        if (Day == Today.Day
+            //            && Month == Today.Month
+            //            && Year == Today.Year
+            //            )
+            //        {
+            //            if (hour == Hour)
+            //            {
+            //                OK += Int32.Parse(tt2[2][j]);
+            //                NG += Int32.Parse(tt2[3][j]);
+            //            }
+            //        }
+            //    }
+            //}
+            //series[0].Points.Clear();
+            //series[1].Points.Clear();
+            //series[2].Points.Clear();
+
+            series[0].Points.Add(new SeriesPoint(para1, para2));
+            series[1].Points.Add(new SeriesPoint(para1, para3));
+            series[2].Points.Add(new SeriesPoint(para1, para2 + para3));
         }
     }
 }

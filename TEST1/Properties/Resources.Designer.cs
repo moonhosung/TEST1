@@ -103,6 +103,16 @@ namespace TEST1.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap green_tomato {
+            get {
+                object obj = ResourceManager.GetObject("green_tomato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap home_bt_sideview_start_n {
             get {
                 object obj = ResourceManager.GetObject("home_bt_sideview_start_n", resourceCulture);
@@ -146,6 +156,16 @@ namespace TEST1.Properties {
         internal static System.Drawing.Bitmap tomato {
             get {
                 object obj = ResourceManager.GetObject("tomato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellow_tomato {
+            get {
+                object obj = ResourceManager.GetObject("yellow_tomato", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

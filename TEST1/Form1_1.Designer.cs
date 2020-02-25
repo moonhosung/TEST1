@@ -39,9 +39,11 @@
             this.BTN_HARVEST = new User_Control.Button();
             this.PB_AGV1 = new System.Windows.Forms.PictureBox();
             this.PB_FARM = new System.Windows.Forms.PictureBox();
+            this.CHART_GROWTH2 = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_FARM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -70,18 +72,19 @@
             // CHART_GROWTH
             // 
             this.CHART_GROWTH.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
+            this.CHART_GROWTH.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.CHART_GROWTH.Legend.Name = "Default Legend";
-            this.CHART_GROWTH.Location = new System.Drawing.Point(1007, 72);
+            this.CHART_GROWTH.Location = new System.Drawing.Point(1024, 167);
             this.CHART_GROWTH.Name = "CHART_GROWTH";
             this.CHART_GROWTH.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.CHART_GROWTH.Size = new System.Drawing.Size(422, 280);
+            this.CHART_GROWTH.Size = new System.Drawing.Size(608, 280);
             this.CHART_GROWTH.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(1008, 21);
+            this.label2.Location = new System.Drawing.Point(1025, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(323, 45);
             this.label2.TabIndex = 9;
@@ -133,11 +136,22 @@
             this.PB_FARM.Paint += new System.Windows.Forms.PaintEventHandler(this.PB_FARM_Paint);
             this.PB_FARM.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PB_FARM_MouseMove);
             // 
+            // CHART_GROWTH2
+            // 
+            this.CHART_GROWTH2.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.CHART_GROWTH2.Legend.Name = "Default Legend";
+            this.CHART_GROWTH2.Location = new System.Drawing.Point(1024, 483);
+            this.CHART_GROWTH2.Name = "CHART_GROWTH2";
+            this.CHART_GROWTH2.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.CHART_GROWTH2.Size = new System.Drawing.Size(608, 320);
+            this.CHART_GROWTH2.TabIndex = 14;
+            // 
             // Form1_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.CHART_GROWTH2);
             this.Controls.Add(this.BTN_HARVEST);
             this.Controls.Add(this.BTN_PEST);
             this.Controls.Add(this.BTN_GROWTH);
@@ -148,12 +162,13 @@
             this.Controls.Add(this.PB_FARM);
             this.Controls.Add(this.button1);
             this.Name = "Form1_1";
-            this.Size = new System.Drawing.Size(1583, 855);
+            this.Size = new System.Drawing.Size(1694, 922);
             this.Load += new System.EventHandler(this.Form1_1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AGV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_FARM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +186,6 @@
         private User_Control.Button BTN_GROWTH;
         private User_Control.Button BTN_PEST;
         private User_Control.Button BTN_HARVEST;
+        private DevExpress.XtraCharts.ChartControl CHART_GROWTH2;
     }
 }

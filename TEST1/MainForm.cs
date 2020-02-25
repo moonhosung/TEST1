@@ -23,12 +23,16 @@ namespace TEST1
         public static LoginDlg LoginPopup = LoginDlg.CreateInstance();
         public static OpacityForm opacityForm = OpacityForm.CreateInstance();
         public static Message_Popup Message_popup = Message_Popup.CreateInstance();
+
+        public static List<bool> PestLines = new List<bool>();
         public static List<bool> Line_1 =  new List<bool>();
         public static List<bool> Line_2 = new List<bool>();
         public static List<bool> Line_3 = new List<bool>();
         public static List<bool> Line_4 = new List<bool>();
         public static List<bool> Line_5 = new List<bool>();
         public static List<bool> Line_6 = new List<bool>();
+
+        public static SelectMode Mode = new SelectMode();
         public static MovePosition position = new MovePosition();
         public static List<MovePosition> movePositions = new List<MovePosition>();
 
