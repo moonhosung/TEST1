@@ -31,26 +31,33 @@
             this.MAIN_TLP = new System.Windows.Forms.TableLayoutPanel();
             this.TLP_CENTER = new System.Windows.Forms.TableLayoutPanel();
             this.TLP_RIGHT = new System.Windows.Forms.TableLayoutPanel();
+            this.TLP_MENU = new System.Windows.Forms.TableLayoutPanel();
+            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
+            this.TLP_BOTTOM = new System.Windows.Forms.TableLayoutPanel();
+            this.PN_TOP = new System.Windows.Forms.Panel();
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BTN_MAIN_EXIT = new System.Windows.Forms.Button();
+            this.PB_LOGO = new System.Windows.Forms.PictureBox();
             this.BTN_RIGHT5 = new User_Control.Button();
             this.BTN_RIGHT4 = new User_Control.Button();
             this.BTN_RIGHT3 = new User_Control.Button();
             this.BTN_RIGHT2 = new User_Control.Button();
             this.BTN_RIGHT1 = new User_Control.Button();
-            this.TLP_BOTTOM = new System.Windows.Forms.TableLayoutPanel();
+            this.BTN_MENU1 = new User_Control.MenuButton();
+            this.BTN_MENU2 = new User_Control.MenuButton();
+            this.BTN_MENU3 = new User_Control.MenuButton();
             this.BTN_BOTTOM_MENU4 = new User_Control.Button();
             this.BTN_BOTTOM_MENU5 = new User_Control.Button();
             this.BTN_BOTTOM_MENU3 = new User_Control.Button();
             this.BTN_BOTTOM_MENU1 = new User_Control.Button();
             this.BTN_BOTTOM_MENU2 = new User_Control.Button();
-            this.PN_TOP = new System.Windows.Forms.Panel();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.BTN_LOGIN = new User_Control.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BTN_MAIN_EXIT = new System.Windows.Forms.Button();
-            this.PB_LOGO = new System.Windows.Forms.PictureBox();
             this.MAIN_TLP.SuspendLayout();
             this.TLP_CENTER.SuspendLayout();
             this.TLP_RIGHT.SuspendLayout();
+            this.TLP_MENU.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             this.TLP_BOTTOM.SuspendLayout();
             this.PN_TOP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -78,10 +85,14 @@
             // TLP_CENTER
             // 
             this.TLP_CENTER.BackColor = System.Drawing.Color.White;
-            this.TLP_CENTER.ColumnCount = 2;
+            this.TLP_CENTER.ColumnCount = 4;
             this.TLP_CENTER.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_CENTER.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.TLP_CENTER.Controls.Add(this.TLP_RIGHT, 1, 0);
+            this.TLP_CENTER.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TLP_CENTER.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.TLP_CENTER.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.TLP_CENTER.Controls.Add(this.TLP_RIGHT, 2, 0);
+            this.TLP_CENTER.Controls.Add(this.TLP_MENU, 3, 0);
+            this.TLP_CENTER.Controls.Add(this.separatorControl2, 1, 0);
             this.TLP_CENTER.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_CENTER.Location = new System.Drawing.Point(0, 80);
             this.TLP_CENTER.Margin = new System.Windows.Forms.Padding(0);
@@ -90,6 +101,7 @@
             this.TLP_CENTER.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TLP_CENTER.Size = new System.Drawing.Size(1920, 880);
             this.TLP_CENTER.TabIndex = 1;
+            this.TLP_CENTER.Paint += new System.Windows.Forms.PaintEventHandler(this.TLP_CENTER_Paint);
             // 
             // TLP_RIGHT
             // 
@@ -101,7 +113,7 @@
             this.TLP_RIGHT.Controls.Add(this.BTN_RIGHT2, 0, 1);
             this.TLP_RIGHT.Controls.Add(this.BTN_RIGHT1, 0, 0);
             this.TLP_RIGHT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TLP_RIGHT.Location = new System.Drawing.Point(1803, 3);
+            this.TLP_RIGHT.Location = new System.Drawing.Point(1672, 3);
             this.TLP_RIGHT.Name = "TLP_RIGHT";
             this.TLP_RIGHT.RowCount = 6;
             this.TLP_RIGHT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
@@ -110,46 +122,41 @@
             this.TLP_RIGHT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.TLP_RIGHT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.TLP_RIGHT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.TLP_RIGHT.Size = new System.Drawing.Size(114, 874);
+            this.TLP_RIGHT.Size = new System.Drawing.Size(1, 874);
             this.TLP_RIGHT.TabIndex = 0;
             // 
-            // BTN_RIGHT5
+            // TLP_MENU
             // 
-            this.BTN_RIGHT5.Location = new System.Drawing.Point(3, 483);
-            this.BTN_RIGHT5.Name = "BTN_RIGHT5";
-            this.BTN_RIGHT5.Size = new System.Drawing.Size(108, 109);
-            this.BTN_RIGHT5.TabIndex = 4;
+            this.TLP_MENU.ColumnCount = 1;
+            this.TLP_MENU.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TLP_MENU.Controls.Add(this.BTN_MENU1, 0, 0);
+            this.TLP_MENU.Controls.Add(this.BTN_MENU2, 0, 1);
+            this.TLP_MENU.Controls.Add(this.BTN_MENU3, 0, 2);
+            this.TLP_MENU.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLP_MENU.Location = new System.Drawing.Point(1673, 3);
+            this.TLP_MENU.Name = "TLP_MENU";
+            this.TLP_MENU.RowCount = 8;
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.TLP_MENU.Size = new System.Drawing.Size(244, 874);
+            this.TLP_MENU.TabIndex = 1;
             // 
-            // BTN_RIGHT4
+            // separatorControl2
             // 
-            this.BTN_RIGHT4.Location = new System.Drawing.Point(3, 363);
-            this.BTN_RIGHT4.Name = "BTN_RIGHT4";
-            this.BTN_RIGHT4.Size = new System.Drawing.Size(108, 109);
-            this.BTN_RIGHT4.TabIndex = 3;
-            // 
-            // BTN_RIGHT3
-            // 
-            this.BTN_RIGHT3.Location = new System.Drawing.Point(3, 243);
-            this.BTN_RIGHT3.Name = "BTN_RIGHT3";
-            this.BTN_RIGHT3.Size = new System.Drawing.Size(108, 109);
-            this.BTN_RIGHT3.TabIndex = 2;
-            this.BTN_RIGHT3.ButtonClick += new System.EventHandler(this.BTN_RIGHT3_ButtonClick);
-            // 
-            // BTN_RIGHT2
-            // 
-            this.BTN_RIGHT2.Location = new System.Drawing.Point(3, 123);
-            this.BTN_RIGHT2.Name = "BTN_RIGHT2";
-            this.BTN_RIGHT2.Size = new System.Drawing.Size(108, 109);
-            this.BTN_RIGHT2.TabIndex = 1;
-            this.BTN_RIGHT2.ButtonClick += new System.EventHandler(this.BTN_RIGHT2_ButtonClick);
-            // 
-            // BTN_RIGHT1
-            // 
-            this.BTN_RIGHT1.Location = new System.Drawing.Point(3, 3);
-            this.BTN_RIGHT1.Name = "BTN_RIGHT1";
-            this.BTN_RIGHT1.Size = new System.Drawing.Size(108, 109);
-            this.BTN_RIGHT1.TabIndex = 0;
-            this.BTN_RIGHT1.ButtonClick += new System.EventHandler(this.BTN_RIGHT1_ButtonClick);
+            this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
+            this.separatorControl2.Location = new System.Drawing.Point(1649, 0);
+            this.separatorControl2.LookAndFeel.SkinName = "DevExpress Dark Style";
+            this.separatorControl2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.separatorControl2.Margin = new System.Windows.Forms.Padding(0);
+            this.separatorControl2.Name = "separatorControl2";
+            this.separatorControl2.Size = new System.Drawing.Size(20, 874);
+            this.separatorControl2.TabIndex = 17;
             // 
             // TLP_BOTTOM
             // 
@@ -177,46 +184,6 @@
             this.TLP_BOTTOM.Size = new System.Drawing.Size(1920, 120);
             this.TLP_BOTTOM.TabIndex = 2;
             // 
-            // BTN_BOTTOM_MENU4
-            // 
-            this.BTN_BOTTOM_MENU4.Location = new System.Drawing.Point(363, 3);
-            this.BTN_BOTTOM_MENU4.Name = "BTN_BOTTOM_MENU4";
-            this.BTN_BOTTOM_MENU4.Size = new System.Drawing.Size(114, 109);
-            this.BTN_BOTTOM_MENU4.TabIndex = 5;
-            this.BTN_BOTTOM_MENU4.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU4_ButtonClick);
-            // 
-            // BTN_BOTTOM_MENU5
-            // 
-            this.BTN_BOTTOM_MENU5.Location = new System.Drawing.Point(483, 3);
-            this.BTN_BOTTOM_MENU5.Name = "BTN_BOTTOM_MENU5";
-            this.BTN_BOTTOM_MENU5.Size = new System.Drawing.Size(114, 109);
-            this.BTN_BOTTOM_MENU5.TabIndex = 4;
-            this.BTN_BOTTOM_MENU5.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU5_ButtonClick);
-            // 
-            // BTN_BOTTOM_MENU3
-            // 
-            this.BTN_BOTTOM_MENU3.Location = new System.Drawing.Point(243, 3);
-            this.BTN_BOTTOM_MENU3.Name = "BTN_BOTTOM_MENU3";
-            this.BTN_BOTTOM_MENU3.Size = new System.Drawing.Size(114, 109);
-            this.BTN_BOTTOM_MENU3.TabIndex = 3;
-            this.BTN_BOTTOM_MENU3.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU3_ButtonClick);
-            // 
-            // BTN_BOTTOM_MENU1
-            // 
-            this.BTN_BOTTOM_MENU1.Location = new System.Drawing.Point(3, 3);
-            this.BTN_BOTTOM_MENU1.Name = "BTN_BOTTOM_MENU1";
-            this.BTN_BOTTOM_MENU1.Size = new System.Drawing.Size(114, 109);
-            this.BTN_BOTTOM_MENU1.TabIndex = 2;
-            this.BTN_BOTTOM_MENU1.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU1_ButtonClick);
-            // 
-            // BTN_BOTTOM_MENU2
-            // 
-            this.BTN_BOTTOM_MENU2.Location = new System.Drawing.Point(123, 3);
-            this.BTN_BOTTOM_MENU2.Name = "BTN_BOTTOM_MENU2";
-            this.BTN_BOTTOM_MENU2.Size = new System.Drawing.Size(114, 109);
-            this.BTN_BOTTOM_MENU2.TabIndex = 1;
-            this.BTN_BOTTOM_MENU2.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU2_ButtonClick);
-            // 
             // PN_TOP
             // 
             this.PN_TOP.BackColor = System.Drawing.Color.White;
@@ -240,14 +207,6 @@
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Size = new System.Drawing.Size(1917, 18);
             this.separatorControl1.TabIndex = 10;
-            // 
-            // BTN_LOGIN
-            // 
-            this.BTN_LOGIN.Location = new System.Drawing.Point(1717, 18);
-            this.BTN_LOGIN.Name = "BTN_LOGIN";
-            this.BTN_LOGIN.Size = new System.Drawing.Size(109, 40);
-            this.BTN_LOGIN.TabIndex = 9;
-            this.BTN_LOGIN.ButtonClick += new System.EventHandler(this.BTN_LOGIN_ButtonClick);
             // 
             // label1
             // 
@@ -289,6 +248,123 @@
             this.PB_LOGO.TabIndex = 6;
             this.PB_LOGO.TabStop = false;
             // 
+            // BTN_RIGHT5
+            // 
+            this.BTN_RIGHT5.Location = new System.Drawing.Point(3, 483);
+            this.BTN_RIGHT5.Name = "BTN_RIGHT5";
+            this.BTN_RIGHT5.Size = new System.Drawing.Size(1, 109);
+            this.BTN_RIGHT5.TabIndex = 4;
+            // 
+            // BTN_RIGHT4
+            // 
+            this.BTN_RIGHT4.Location = new System.Drawing.Point(3, 363);
+            this.BTN_RIGHT4.Name = "BTN_RIGHT4";
+            this.BTN_RIGHT4.Size = new System.Drawing.Size(1, 109);
+            this.BTN_RIGHT4.TabIndex = 3;
+            // 
+            // BTN_RIGHT3
+            // 
+            this.BTN_RIGHT3.Location = new System.Drawing.Point(3, 243);
+            this.BTN_RIGHT3.Name = "BTN_RIGHT3";
+            this.BTN_RIGHT3.Size = new System.Drawing.Size(1, 109);
+            this.BTN_RIGHT3.TabIndex = 2;
+            this.BTN_RIGHT3.ButtonClick += new System.EventHandler(this.BTN_RIGHT3_ButtonClick);
+            // 
+            // BTN_RIGHT2
+            // 
+            this.BTN_RIGHT2.Location = new System.Drawing.Point(3, 123);
+            this.BTN_RIGHT2.Name = "BTN_RIGHT2";
+            this.BTN_RIGHT2.Size = new System.Drawing.Size(1, 109);
+            this.BTN_RIGHT2.TabIndex = 1;
+            this.BTN_RIGHT2.ButtonClick += new System.EventHandler(this.BTN_RIGHT2_ButtonClick);
+            // 
+            // BTN_RIGHT1
+            // 
+            this.BTN_RIGHT1.Location = new System.Drawing.Point(3, 3);
+            this.BTN_RIGHT1.Name = "BTN_RIGHT1";
+            this.BTN_RIGHT1.Size = new System.Drawing.Size(1, 109);
+            this.BTN_RIGHT1.TabIndex = 0;
+            this.BTN_RIGHT1.ButtonClick += new System.EventHandler(this.BTN_RIGHT1_ButtonClick);
+            // 
+            // BTN_MENU1
+            // 
+            this.BTN_MENU1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BTN_MENU1.Location = new System.Drawing.Point(3, 3);
+            this.BTN_MENU1.Name = "BTN_MENU1";
+            this.BTN_MENU1.Size = new System.Drawing.Size(238, 84);
+            this.BTN_MENU1.TabIndex = 0;
+            this.BTN_MENU1.ButtonClick += new System.EventHandler(this.BTN_MENU1_ButtonClick);
+            // 
+            // BTN_MENU2
+            // 
+            this.BTN_MENU2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BTN_MENU2.Location = new System.Drawing.Point(3, 93);
+            this.BTN_MENU2.Name = "BTN_MENU2";
+            this.BTN_MENU2.Size = new System.Drawing.Size(238, 84);
+            this.BTN_MENU2.TabIndex = 0;
+            this.BTN_MENU2.ButtonClick += new System.EventHandler(this.BTN_MENU2_ButtonClick);
+            // 
+            // BTN_MENU3
+            // 
+            this.BTN_MENU3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BTN_MENU3.Location = new System.Drawing.Point(3, 183);
+            this.BTN_MENU3.Name = "BTN_MENU3";
+            this.BTN_MENU3.Size = new System.Drawing.Size(238, 84);
+            this.BTN_MENU3.TabIndex = 0;
+            // 
+            // BTN_BOTTOM_MENU4
+            // 
+            this.BTN_BOTTOM_MENU4.Location = new System.Drawing.Point(363, 3);
+            this.BTN_BOTTOM_MENU4.Name = "BTN_BOTTOM_MENU4";
+            this.BTN_BOTTOM_MENU4.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU4.TabIndex = 5;
+            this.BTN_BOTTOM_MENU4.Visible = false;
+            this.BTN_BOTTOM_MENU4.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU4_ButtonClick);
+            // 
+            // BTN_BOTTOM_MENU5
+            // 
+            this.BTN_BOTTOM_MENU5.Location = new System.Drawing.Point(483, 3);
+            this.BTN_BOTTOM_MENU5.Name = "BTN_BOTTOM_MENU5";
+            this.BTN_BOTTOM_MENU5.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU5.TabIndex = 4;
+            this.BTN_BOTTOM_MENU5.Visible = false;
+            this.BTN_BOTTOM_MENU5.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU5_ButtonClick);
+            // 
+            // BTN_BOTTOM_MENU3
+            // 
+            this.BTN_BOTTOM_MENU3.Location = new System.Drawing.Point(243, 3);
+            this.BTN_BOTTOM_MENU3.Name = "BTN_BOTTOM_MENU3";
+            this.BTN_BOTTOM_MENU3.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU3.TabIndex = 3;
+            this.BTN_BOTTOM_MENU3.Visible = false;
+            this.BTN_BOTTOM_MENU3.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU3_ButtonClick);
+            // 
+            // BTN_BOTTOM_MENU1
+            // 
+            this.BTN_BOTTOM_MENU1.Location = new System.Drawing.Point(3, 3);
+            this.BTN_BOTTOM_MENU1.Name = "BTN_BOTTOM_MENU1";
+            this.BTN_BOTTOM_MENU1.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU1.TabIndex = 2;
+            this.BTN_BOTTOM_MENU1.Visible = false;
+            this.BTN_BOTTOM_MENU1.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU1_ButtonClick);
+            // 
+            // BTN_BOTTOM_MENU2
+            // 
+            this.BTN_BOTTOM_MENU2.Location = new System.Drawing.Point(123, 3);
+            this.BTN_BOTTOM_MENU2.Name = "BTN_BOTTOM_MENU2";
+            this.BTN_BOTTOM_MENU2.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU2.TabIndex = 1;
+            this.BTN_BOTTOM_MENU2.Visible = false;
+            this.BTN_BOTTOM_MENU2.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU2_ButtonClick);
+            // 
+            // BTN_LOGIN
+            // 
+            this.BTN_LOGIN.Location = new System.Drawing.Point(1717, 18);
+            this.BTN_LOGIN.Name = "BTN_LOGIN";
+            this.BTN_LOGIN.Size = new System.Drawing.Size(109, 40);
+            this.BTN_LOGIN.TabIndex = 9;
+            this.BTN_LOGIN.ButtonClick += new System.EventHandler(this.BTN_LOGIN_ButtonClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -303,6 +379,8 @@
             this.MAIN_TLP.ResumeLayout(false);
             this.TLP_CENTER.ResumeLayout(false);
             this.TLP_RIGHT.ResumeLayout(false);
+            this.TLP_MENU.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
             this.TLP_BOTTOM.ResumeLayout(false);
             this.PN_TOP.ResumeLayout(false);
             this.PN_TOP.PerformLayout();
@@ -334,6 +412,11 @@
         private User_Control.Button BTN_LOGIN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BTN_MAIN_EXIT;
+        private System.Windows.Forms.TableLayoutPanel TLP_MENU;
+        private User_Control.MenuButton BTN_MENU3;
+        private User_Control.MenuButton BTN_MENU2;
+        private User_Control.MenuButton BTN_MENU1;
+        private DevExpress.XtraEditors.SeparatorControl separatorControl2;
     }
 }
 

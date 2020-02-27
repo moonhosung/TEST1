@@ -55,6 +55,13 @@ namespace TEST1
             InitializeComponent();
         }
 
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect
+                                                     , int nTopRect
+                                                     , int nRightRect
+                                                     , int nBottomRect
+                                                     , int nWidthEllipse
+                                                     , int nHeightEllipse);
         private void Form1_Load(object sender, EventArgs e)
         {
             Cursor mycursor = new Cursor(Cursor.Current.Handle);
@@ -110,6 +117,14 @@ namespace TEST1
             temp.Y = 400;
             movePositions.Add(temp);
             position = GetMovePosition(Position.STOP);
+            
+            //PN_MENU1.Region = Region.FromHrgn(CreateRoundRectRgn(30, 10, PN_MENU1.Width-50, PN_MENU1.Height-10, 30, 30));
+            //PN_MENU2.Region = Region.FromHrgn(CreateRoundRectRgn(30, 10, PN_MENU2.Width - 50, PN_MENU2.Height - 10, 30, 30));
+            //PN_MENU3.Region = Region.FromHrgn(CreateRoundRectRgn(30, 10, PN_MENU3.Width - 50, PN_MENU3.Height - 10, 30, 30));
+
+            BTN_MENU1.SetText("Main");
+            BTN_MENU2.SetText("Log");
+            BTN_MENU3.SetText("Setup");
         }
 
 
@@ -153,24 +168,9 @@ namespace TEST1
                     break;
             }
         }
-        private void button1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void BTN_MAIN_EXIT_Click(object sender, EventArgs e)
         {
-            
             System.Diagnostics.Process[] mProcess = System.Diagnostics.Process.GetProcessesByName(Application.ProductName);
             foreach (System.Diagnostics.Process p in mProcess)
                 p.Kill();
@@ -288,6 +288,23 @@ namespace TEST1
         private void BTN_BOTTOM_MENU5_ButtonClick(object sender, EventArgs e)
         {
 
+        }
+
+        private void TLP_CENTER_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BTN_MENU1_ButtonClick(object sender, EventArgs e)
+        {
+            TLP_CENTER.Controls.RemoveAt(3);
+            TLP_CENTER.Controls.Add(form1_1);
+        }
+
+        private void BTN_MENU2_ButtonClick(object sender, EventArgs e)
+        {
+            TLP_CENTER.Controls.RemoveAt(3);
+            TLP_CENTER.Controls.Add(form1_2);
         }
     }
 }

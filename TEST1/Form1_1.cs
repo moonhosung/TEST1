@@ -114,10 +114,28 @@ namespace TEST1
             CB_HARVEST_LINE1.Enabled = false;
             CB_HARVEST_LINE2.Enabled = false;
 
+            // 생육정보 취득 방법 초기화
             CB_GROWTH_TYPE.InsertItem("Sample");
             CB_GROWTH_TYPE.InsertItem("All");
             CB_GROWTH_TYPE.SetSelectedIndex(0);
+            for (int i = 0; i < LocationCountY; i++)
+            {
+                MainForm.Line_1[i] = false;
+                MainForm.Line_2[i] = false;
+                MainForm.Line_3[i] = false;
+                MainForm.Line_4[i] = false;
+            }
+            int temp = r.Next(0, 9);
+            MainForm.Line_1[temp] = true;
+            temp = r.Next(0, 9);
+            MainForm.Line_2[temp] = true;
+            temp = r.Next(0, 9);
+            MainForm.Line_3[temp] = true;
+            temp = r.Next(0, 9);
+            MainForm.Line_4[temp] = true;
+            PB_FARM.Invalidate();
 
+            
         }
 
 
@@ -254,19 +272,19 @@ namespace TEST1
 
             if (MainForm.Mode == SelectMode.HARVEST)
             {
-                if (CB_HARVEST_LINE1.GetSelectedIndex() == 0)
+                if (Int32.Parse(CB_HARVEST_LINE1.GetSelectedItem().Substring(5,1)) == 1)
                 {
                     e.Graphics.FillRectangle(br2, new Rectangle((int)StartX, (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
                 }
-                if (CB_HARVEST_LINE1.GetSelectedIndex() == 1)
+                if (Int32.Parse(CB_HARVEST_LINE1.GetSelectedItem().Substring(5, 1)) <= 2 && Int32.Parse(CB_HARVEST_LINE2.GetSelectedItem().Substring(5, 1)) >= 2)
                 {
                     e.Graphics.FillRectangle(br2, new Rectangle((int)StartX + (int)LocationSizeX, (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
                 }
-                if (CB_HARVEST_LINE1.GetSelectedIndex() == 2)
+                if (Int32.Parse(CB_HARVEST_LINE1.GetSelectedItem().Substring(5, 1)) <= 3 && Int32.Parse(CB_HARVEST_LINE2.GetSelectedItem().Substring(5, 1)) >= 3)
                 {
                     e.Graphics.FillRectangle(br2, new Rectangle((int)StartX + ((int)LineGap) + ((int)LocationSizeX * 2), (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
                 }
-                if (CB_HARVEST_LINE1.GetSelectedIndex() == 3)
+                if (Int32.Parse(CB_HARVEST_LINE1.GetSelectedItem().Substring(5, 1)) <= 4 && Int32.Parse(CB_HARVEST_LINE2.GetSelectedItem().Substring(5, 1)) >= 4)
                 {
                     e.Graphics.FillRectangle(br2, new Rectangle((int)StartX + ((int)LineGap) + ((int)LocationSizeX * 2) + (int)LocationSizeX, (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
                 }
@@ -594,6 +612,45 @@ namespace TEST1
             {
                 // 정보취득 시작
             }
+        }
+
+        private void CB_HARVEST_LINE2_ButtonClick(object sender, EventArgs e)
+        {
+
+            PB_FARM.Invalidate();
+        }
+
+        private void CB_GROWTH_TYPE_ButtonClick(object sender, EventArgs e)
+        {
+            if (CB_GROWTH_TYPE.GetSelectedItem() == "Sample")
+            {
+                for (int i = 0; i < LocationCountY; i++)
+                {
+                    MainForm.Line_1[i] = false;
+                    MainForm.Line_2[i] = false;
+                    MainForm.Line_3[i] = false;
+                    MainForm.Line_4[i] = false;
+                }
+                int temp = r.Next(0, 9);
+                MainForm.Line_1[temp] = true;
+                temp = r.Next(0, 9);
+                MainForm.Line_2[temp] = true;
+                temp = r.Next(0, 9);
+                MainForm.Line_3[temp] = true;
+                temp = r.Next(0, 9);
+                MainForm.Line_4[temp] = true;
+            }
+            else
+            {
+                for (int i = 0; i < LocationCountY; i++)
+                {
+                    MainForm.Line_1[i] = true;
+                    MainForm.Line_2[i] = true;
+                    MainForm.Line_3[i] = true;
+                    MainForm.Line_4[i] = true;
+                }
+            }
+            PB_FARM.Invalidate();
         }
 
         private void ChartInit()

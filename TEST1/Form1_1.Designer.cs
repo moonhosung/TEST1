@@ -37,19 +37,19 @@ namespace TEST1
             this.CHART_GROWTH = new DevExpress.XtraCharts.ChartControl();
             this.LB_GROWTH = new System.Windows.Forms.Label();
             this.CHART_GROWTH2 = new DevExpress.XtraCharts.ChartControl();
-            this.CB_HARVEST_LINE1 = new User_Control.ComboBox();
-            this.BTN_HARVEST = new User_Control.Button();
-            this.BTN_PEST = new User_Control.Button();
-            this.BTN_GROWTH = new User_Control.Button();
             this.LB_HARVEST = new System.Windows.Forms.Label();
             this.PN_GROWTH_INFO = new System.Windows.Forms.Panel();
             this.PN_GROWTH_LINE = new System.Windows.Forms.Panel();
-            this.BTN_GROWTH_CHECK = new User_Control.Button();
-            this.CB_GROWTH_TYPE = new User_Control.ComboBox();
-            this.CB_HARVEST_LINE2 = new User_Control.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PB_AGV1 = new System.Windows.Forms.PictureBox();
             this.PB_FARM = new System.Windows.Forms.PictureBox();
+            this.CB_HARVEST_LINE2 = new User_Control.ComboBox();
+            this.CB_HARVEST_LINE1 = new User_Control.ComboBox();
+            this.CB_GROWTH_TYPE = new User_Control.ComboBox();
+            this.BTN_GROWTH_CHECK = new User_Control.Button();
+            this.BTN_HARVEST = new User_Control.Button();
+            this.BTN_PEST = new User_Control.Button();
+            this.BTN_GROWTH = new User_Control.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH2)).BeginInit();
             this.PN_GROWTH_INFO.SuspendLayout();
@@ -73,7 +73,7 @@ namespace TEST1
             this.CHART_GROWTH.Location = new System.Drawing.Point(13, 133);
             this.CHART_GROWTH.Name = "CHART_GROWTH";
             this.CHART_GROWTH.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.CHART_GROWTH.Size = new System.Drawing.Size(608, 280);
+            this.CHART_GROWTH.Size = new System.Drawing.Size(594, 280);
             this.CHART_GROWTH.TabIndex = 5;
             // 
             // LB_GROWTH
@@ -92,44 +92,11 @@ namespace TEST1
             this.CHART_GROWTH2.BackColor = System.Drawing.Color.Transparent;
             this.CHART_GROWTH2.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.CHART_GROWTH2.Legend.Name = "Default Legend";
-            this.CHART_GROWTH2.Location = new System.Drawing.Point(12, 417);
+            this.CHART_GROWTH2.Location = new System.Drawing.Point(12, 431);
             this.CHART_GROWTH2.Name = "CHART_GROWTH2";
             this.CHART_GROWTH2.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.CHART_GROWTH2.Size = new System.Drawing.Size(608, 256);
+            this.CHART_GROWTH2.Size = new System.Drawing.Size(595, 256);
             this.CHART_GROWTH2.TabIndex = 14;
-            // 
-            // CB_HARVEST_LINE1
-            // 
-            this.CB_HARVEST_LINE1.Location = new System.Drawing.Point(26, 74);
-            this.CB_HARVEST_LINE1.Margin = new System.Windows.Forms.Padding(0);
-            this.CB_HARVEST_LINE1.Name = "CB_HARVEST_LINE1";
-            this.CB_HARVEST_LINE1.Size = new System.Drawing.Size(170, 32);
-            this.CB_HARVEST_LINE1.TabIndex = 15;
-            this.CB_HARVEST_LINE1.ButtonClick += new System.EventHandler(this.CB_GROWTH_LINE_ButtonClick);
-            // 
-            // BTN_HARVEST
-            // 
-            this.BTN_HARVEST.Location = new System.Drawing.Point(341, 31);
-            this.BTN_HARVEST.Name = "BTN_HARVEST";
-            this.BTN_HARVEST.Size = new System.Drawing.Size(126, 50);
-            this.BTN_HARVEST.TabIndex = 12;
-            this.BTN_HARVEST.ButtonClick += new System.EventHandler(this.BTN_HARVEST_ButtonClick);
-            // 
-            // BTN_PEST
-            // 
-            this.BTN_PEST.Location = new System.Drawing.Point(186, 31);
-            this.BTN_PEST.Name = "BTN_PEST";
-            this.BTN_PEST.Size = new System.Drawing.Size(126, 50);
-            this.BTN_PEST.TabIndex = 11;
-            this.BTN_PEST.ButtonClick += new System.EventHandler(this.BTN_PEST_ButtonClick);
-            // 
-            // BTN_GROWTH
-            // 
-            this.BTN_GROWTH.Location = new System.Drawing.Point(31, 31);
-            this.BTN_GROWTH.Name = "BTN_GROWTH";
-            this.BTN_GROWTH.Size = new System.Drawing.Size(126, 50);
-            this.BTN_GROWTH.TabIndex = 10;
-            this.BTN_GROWTH.ButtonClick += new System.EventHandler(this.BTN_GROWTH_ButtonClick);
             // 
             // LB_HARVEST
             // 
@@ -150,9 +117,9 @@ namespace TEST1
             this.PN_GROWTH_INFO.Controls.Add(this.CHART_GROWTH2);
             this.PN_GROWTH_INFO.Controls.Add(this.CHART_GROWTH);
             this.PN_GROWTH_INFO.Controls.Add(this.LB_GROWTH);
-            this.PN_GROWTH_INFO.Location = new System.Drawing.Point(1006, 116);
+            this.PN_GROWTH_INFO.Location = new System.Drawing.Point(974, 116);
             this.PN_GROWTH_INFO.Name = "PN_GROWTH_INFO";
-            this.PN_GROWTH_INFO.Size = new System.Drawing.Size(648, 733);
+            this.PN_GROWTH_INFO.Size = new System.Drawing.Size(613, 733);
             this.PN_GROWTH_INFO.TabIndex = 17;
             // 
             // PN_GROWTH_LINE
@@ -166,30 +133,6 @@ namespace TEST1
             this.PN_GROWTH_LINE.Name = "PN_GROWTH_LINE";
             this.PN_GROWTH_LINE.Size = new System.Drawing.Size(924, 157);
             this.PN_GROWTH_LINE.TabIndex = 18;
-            // 
-            // BTN_GROWTH_CHECK
-            // 
-            this.BTN_GROWTH_CHECK.Location = new System.Drawing.Point(347, 76);
-            this.BTN_GROWTH_CHECK.Name = "BTN_GROWTH_CHECK";
-            this.BTN_GROWTH_CHECK.Size = new System.Drawing.Size(260, 35);
-            this.BTN_GROWTH_CHECK.TabIndex = 15;
-            this.BTN_GROWTH_CHECK.ButtonClick += new System.EventHandler(this.BTN_GROWTH_CHECK_ButtonClick);
-            // 
-            // CB_GROWTH_TYPE
-            // 
-            this.CB_GROWTH_TYPE.Location = new System.Drawing.Point(27, 76);
-            this.CB_GROWTH_TYPE.Margin = new System.Windows.Forms.Padding(0);
-            this.CB_GROWTH_TYPE.Name = "CB_GROWTH_TYPE";
-            this.CB_GROWTH_TYPE.Size = new System.Drawing.Size(260, 35);
-            this.CB_GROWTH_TYPE.TabIndex = 16;
-            // 
-            // CB_HARVEST_LINE2
-            // 
-            this.CB_HARVEST_LINE2.Location = new System.Drawing.Point(273, 74);
-            this.CB_HARVEST_LINE2.Margin = new System.Windows.Forms.Padding(0);
-            this.CB_HARVEST_LINE2.Name = "CB_HARVEST_LINE2";
-            this.CB_HARVEST_LINE2.Size = new System.Drawing.Size(170, 32);
-            this.CB_HARVEST_LINE2.TabIndex = 17;
             // 
             // pictureBox1
             // 
@@ -223,6 +166,65 @@ namespace TEST1
             this.PB_FARM.Click += new System.EventHandler(this.PB_FARM_Click);
             this.PB_FARM.Paint += new System.Windows.Forms.PaintEventHandler(this.PB_FARM_Paint);
             this.PB_FARM.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PB_FARM_MouseMove);
+            // 
+            // CB_HARVEST_LINE2
+            // 
+            this.CB_HARVEST_LINE2.Location = new System.Drawing.Point(273, 74);
+            this.CB_HARVEST_LINE2.Margin = new System.Windows.Forms.Padding(0);
+            this.CB_HARVEST_LINE2.Name = "CB_HARVEST_LINE2";
+            this.CB_HARVEST_LINE2.Size = new System.Drawing.Size(170, 32);
+            this.CB_HARVEST_LINE2.TabIndex = 17;
+            this.CB_HARVEST_LINE2.ButtonClick += new System.EventHandler(this.CB_HARVEST_LINE2_ButtonClick);
+            // 
+            // CB_HARVEST_LINE1
+            // 
+            this.CB_HARVEST_LINE1.Location = new System.Drawing.Point(26, 74);
+            this.CB_HARVEST_LINE1.Margin = new System.Windows.Forms.Padding(0);
+            this.CB_HARVEST_LINE1.Name = "CB_HARVEST_LINE1";
+            this.CB_HARVEST_LINE1.Size = new System.Drawing.Size(170, 32);
+            this.CB_HARVEST_LINE1.TabIndex = 15;
+            this.CB_HARVEST_LINE1.ButtonClick += new System.EventHandler(this.CB_GROWTH_LINE_ButtonClick);
+            // 
+            // CB_GROWTH_TYPE
+            // 
+            this.CB_GROWTH_TYPE.Location = new System.Drawing.Point(32, 76);
+            this.CB_GROWTH_TYPE.Margin = new System.Windows.Forms.Padding(0);
+            this.CB_GROWTH_TYPE.Name = "CB_GROWTH_TYPE";
+            this.CB_GROWTH_TYPE.Size = new System.Drawing.Size(260, 35);
+            this.CB_GROWTH_TYPE.TabIndex = 16;
+            this.CB_GROWTH_TYPE.ButtonClick += new System.EventHandler(this.CB_GROWTH_TYPE_ButtonClick);
+            // 
+            // BTN_GROWTH_CHECK
+            // 
+            this.BTN_GROWTH_CHECK.Location = new System.Drawing.Point(317, 76);
+            this.BTN_GROWTH_CHECK.Name = "BTN_GROWTH_CHECK";
+            this.BTN_GROWTH_CHECK.Size = new System.Drawing.Size(260, 35);
+            this.BTN_GROWTH_CHECK.TabIndex = 15;
+            this.BTN_GROWTH_CHECK.ButtonClick += new System.EventHandler(this.BTN_GROWTH_CHECK_ButtonClick);
+            // 
+            // BTN_HARVEST
+            // 
+            this.BTN_HARVEST.Location = new System.Drawing.Point(341, 31);
+            this.BTN_HARVEST.Name = "BTN_HARVEST";
+            this.BTN_HARVEST.Size = new System.Drawing.Size(126, 50);
+            this.BTN_HARVEST.TabIndex = 12;
+            this.BTN_HARVEST.ButtonClick += new System.EventHandler(this.BTN_HARVEST_ButtonClick);
+            // 
+            // BTN_PEST
+            // 
+            this.BTN_PEST.Location = new System.Drawing.Point(186, 31);
+            this.BTN_PEST.Name = "BTN_PEST";
+            this.BTN_PEST.Size = new System.Drawing.Size(126, 50);
+            this.BTN_PEST.TabIndex = 11;
+            this.BTN_PEST.ButtonClick += new System.EventHandler(this.BTN_PEST_ButtonClick);
+            // 
+            // BTN_GROWTH
+            // 
+            this.BTN_GROWTH.Location = new System.Drawing.Point(31, 31);
+            this.BTN_GROWTH.Name = "BTN_GROWTH";
+            this.BTN_GROWTH.Size = new System.Drawing.Size(126, 50);
+            this.BTN_GROWTH.TabIndex = 10;
+            this.BTN_GROWTH.ButtonClick += new System.EventHandler(this.BTN_GROWTH_ButtonClick);
             // 
             // Form1_1
             // 
