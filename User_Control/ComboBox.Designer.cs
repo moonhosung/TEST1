@@ -1,4 +1,6 @@
-﻿namespace User_Control
+﻿using DevExpress.XtraEditors;
+
+namespace User_Control
 {
     partial class ComboBox
     {
@@ -34,13 +36,16 @@
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.Cursor = System.Windows.Forms.Cursors.Default;
             this.comboBoxEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxEdit1.Location = new System.Drawing.Point(0, 0);
             this.comboBoxEdit1.Margin = new System.Windows.Forms.Padding(0);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.AllowFocused = false;
+            this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.comboBoxEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.Red;
             this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.comboBoxEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.comboBoxEdit1.Properties.Appearance.Options.UseBorderColor = true;
             this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEdit1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 16F);
             this.comboBoxEdit1.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -72,6 +77,6 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private ComboBoxEdit comboBoxEdit1;
     }
 }

@@ -10,10 +10,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Reflection;
+using System.Runtime.InteropServices;
+
 namespace TEST1
 {
     public partial class OpacityForm : Form
     {
+        [DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string filename);
 
         public ThreadStart mThreadStart = null;
         public Thread mThread = null;
@@ -109,6 +114,11 @@ namespace TEST1
         }
         private void OpacityForm_Load(object sender, EventArgs e)
         {
+            Cursor mycursor = new Cursor(Cursor.Current.Handle);
+            //dinosau2.ani is in windows folder：
+            IntPtr colorcursorhandle = LoadCursorFromFile(Application.StartupPath + "\\Cursor.cur");
+            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+            this.Cursor = mycursor;
         }
 
         private void OpacityForm_Activated(object sender, EventArgs e)

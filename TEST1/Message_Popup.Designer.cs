@@ -151,6 +151,7 @@
             this.Name = "Message_Popup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Message_Popup";
+            this.Load += new System.EventHandler(this.Message_Popup_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

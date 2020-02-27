@@ -47,7 +47,6 @@ namespace User_Control
             // 
             // gridControl1
             // 
-            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.DataSource = this.bindingSource1;
             resources.ApplyResources(this.gridControl1, "gridControl1");
             this.gridControl1.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(255)))));

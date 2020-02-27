@@ -11,6 +11,7 @@ using TEST1.Function;
 
 using DevExpress.XtraCharts;
 using DevExpress.Utils;
+using System.Runtime.InteropServices;
 
 namespace TEST1
 {
@@ -28,8 +29,8 @@ namespace TEST1
         int LocationCountX = 6;
         int PestLineCount = 5;
         Random r = new Random();
-
         int r1, r2;
+
         DoughnutSeriesView doughnutSeriesView1 = new DoughnutSeriesView();
 
         private static Form1_1 theInstance = null;
@@ -46,10 +47,16 @@ namespace TEST1
         {
             InitializeComponent();
         }
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect
+                                                     , int nTopRect
+                                                     , int nRightRect
+                                                     , int nBottomRect
+                                                     , int nWidthEllipse
+                                                     , int nHeightEllipse);
 
         private void Form1_1_Load(object sender, EventArgs e)
         {
-            button1.SetText("Start");
             for (int i = 0; i < LocationCountY; i++)
             {
                 MainForm.Line_1.Add(false);
@@ -66,9 +73,9 @@ namespace TEST1
                 // StartX -= PB_FARM.Location.X;
                 //StartY -= PB_FARM.Location.Y;
 
-            BTN_GROWTH.SetText("생육");
-            BTN_HARVEST.SetText("수확");
-            BTN_PEST.SetText("방제");
+            BTN_GROWTH.SetText("Growth");
+            BTN_HARVEST.SetText("Harvest");
+            BTN_PEST.SetText("Pest");
             BTN_GROWTH.SetCheck(true);
             BTN_GROWTH.SetType(true);
             BTN_HARVEST.SetType(true);
@@ -78,10 +85,39 @@ namespace TEST1
             r2 = r.Next(0, 100);
 
             ChartInit();
-            ChartUpdate(0, 2, 3);
-            ChartUpdate(1, 2, 3);
-            ChartUpdate(2, 3, 4);
-            ChartUpdate(3, 3, 4);
+
+            SetProgress(0);
+
+            for (int k = 0; k < 4; k++)
+            {
+                ChartUpdate(k, 0, 0);
+            }
+            CB_HARVEST_LINE1.InsertItem("Line 1");
+            CB_HARVEST_LINE1.InsertItem("Line 2");
+            CB_HARVEST_LINE1.InsertItem("Line 3");
+            CB_HARVEST_LINE1.InsertItem("Line 4");
+
+            CB_HARVEST_LINE2.InsertItem("Line 1");
+            CB_HARVEST_LINE2.InsertItem("Line 2");
+            CB_HARVEST_LINE2.InsertItem("Line 3");
+            CB_HARVEST_LINE2.InsertItem("Line 4");
+
+            CB_HARVEST_LINE1.SetSelectedIndex(0);
+            CB_HARVEST_LINE2.SetSelectedIndex(0);
+
+            PN_GROWTH_INFO.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, PN_GROWTH_INFO.Width, PN_GROWTH_INFO.Height, 30, 30));
+            PN_GROWTH_LINE.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, PN_GROWTH_LINE.Width, PN_GROWTH_LINE.Height, 30, 30));
+
+            BTN_GROWTH_CHECK.SetText("Growth Info Check");
+            BTN_GROWTH_CHECK.SetType(true);
+
+            CB_HARVEST_LINE1.Enabled = false;
+            CB_HARVEST_LINE2.Enabled = false;
+
+            CB_GROWTH_TYPE.InsertItem("Sample");
+            CB_GROWTH_TYPE.InsertItem("All");
+            CB_GROWTH_TYPE.SetSelectedIndex(0);
+
         }
 
 
@@ -92,14 +128,14 @@ namespace TEST1
 
         private void button1_ButtonClick(object sender, EventArgs e)
         {
-            if(button1.GetCheck())
-            {
-                MainForm.position = GetMovePosition(Position.STOP);
-            }
-            else
-            {
-                MainForm.position = GetMovePosition(Position.LINE1_START);
-            }
+           //if(button1.GetCheck())
+           //{
+           //    MainForm.position = GetMovePosition(Position.STOP);
+           //}
+           //else
+           //{
+           //    MainForm.position = GetMovePosition(Position.LINE1_START);
+           //}
         }
 
         private void AGVMoveUP()
@@ -178,7 +214,7 @@ namespace TEST1
         private void PB_FARM_Paint(object sender, PaintEventArgs e)
         {
             SolidBrush br = new SolidBrush(Color.FromArgb(100, Color.FromArgb(200, 20, 40)));
-            SolidBrush br2 = new SolidBrush(Color.FromArgb(180, Color.Red));
+            SolidBrush br2 = new SolidBrush(Color.FromArgb(100, Color.BlueViolet));
             if (MainForm.position.position != Position.STOP)
             {
                 //e.Graphics.FillRectangle(br, new Rectangle(40, 10, LineSizeX, LineSizeY));
@@ -216,6 +252,27 @@ namespace TEST1
             }
 
 
+            if (MainForm.Mode == SelectMode.HARVEST)
+            {
+                if (CB_HARVEST_LINE1.GetSelectedIndex() == 0)
+                {
+                    e.Graphics.FillRectangle(br2, new Rectangle((int)StartX, (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
+                }
+                if (CB_HARVEST_LINE1.GetSelectedIndex() == 1)
+                {
+                    e.Graphics.FillRectangle(br2, new Rectangle((int)StartX + (int)LocationSizeX, (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
+                }
+                if (CB_HARVEST_LINE1.GetSelectedIndex() == 2)
+                {
+                    e.Graphics.FillRectangle(br2, new Rectangle((int)StartX + ((int)LineGap) + ((int)LocationSizeX * 2), (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
+                }
+                if (CB_HARVEST_LINE1.GetSelectedIndex() == 3)
+                {
+                    e.Graphics.FillRectangle(br2, new Rectangle((int)StartX + ((int)LineGap) + ((int)LocationSizeX * 2) + (int)LocationSizeX, (int)StartY, (int)LocationSizeX, (int)(LocationCountY * LocationSizeY)));
+                }
+            }
+
+
             if (MainForm.Mode == SelectMode.GROWTH)
             {
                 for (int j = 0; j < LocationCountX; j++)
@@ -242,7 +299,6 @@ namespace TEST1
                 }
             }
 
-
             if (MainForm.Mode == SelectMode.PEST)
             {
                 for (int i = 0; i < PestLineCount; i++)
@@ -264,26 +320,57 @@ namespace TEST1
                 {
                     if (MainForm.Line_1[i])
                     {
-                        MainForm.Message_popup.ShowPopup("Form Open1_" + (i + 1).ToString(), false);
+                        SetProgress(10 * (i + 1));
+
+                        for (int k = 0; k < 4; k++)
+                        {
+                            ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
+                        }
+                        LB_GROWTH.Text = "Line 1_" + (i + 1).ToString() + " Growth Information";
+                        //MainForm.Message_popup.ShowPopup("Form Open1_" + (i + 1).ToString(), false);
                     }
                     if (MainForm.Line_2[i])
                     {
-                        MainForm.Message_popup.ShowPopup("Form Open2_" + (i + 1).ToString(), false);
+                        SetProgress(10 * (i + 1));
+
+                        for (int k = 0; k < 4; k++)
+                        {
+                            ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
+                        }
+                        LB_GROWTH.Text = "Line 2_" + (i + 1).ToString() + " Growth Information";
+                        //MainForm.Message_popup.ShowPopup("Form Open2_" + (i + 1).ToString(), false);
                     }
                     if (MainForm.Line_3[i])
                     {
-                        MainForm.Message_popup.ShowPopup("Form Open3_" + (i + 1).ToString(), false);
+                        SetProgress(10 * (i + 1));
+
+                        for (int k = 0; k < 4; k++)
+                        {
+                            ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
+                        }
+                        LB_GROWTH.Text = "Line 3_" + (i + 1).ToString() + " Growth Information";
+                        //MainForm.Message_popup.ShowPopup("Form Open3_" + (i + 1).ToString(), false);
                     }
                     if (MainForm.Line_4[i])
                     {
-                        MainForm.Message_popup.ShowPopup("Form Open4_" + (i + 1).ToString(), false);
+                        SetProgress(10 * (i + 1));
+
+                        for (int k = 0; k < 4; k++)
+                        {
+                            ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
+                        }
+                        LB_GROWTH.Text = "Line 4_" + (i + 1).ToString() + " Growth Information";
+                        //MainForm.Message_popup.ShowPopup("Form Open4_" + (i + 1).ToString(), false);
                     }
                 }
             }
             if (MainForm.Mode == SelectMode.PEST)
             {
-                if(MainForm.PestLines[0])
-                MainForm.Message_popup.ShowPopup("방제 팝업", false);
+                for(int i=0;i<MainForm.PestLines.Count;i++)
+                {
+                    if (MainForm.PestLines[i])
+                        MainForm.Message_popup.ShowPopup("Pest Popup_"+i+1, false);
+                }
             }
         }
 
@@ -306,7 +393,6 @@ namespace TEST1
                             {
                                 if (!MainForm.Line_1[i] && j == 0)
                                 {
-                                    SetProgress(10 * (i + 1));
                                     MainForm.Line_2[i] = false;
                                     MainForm.Line_1[i] = true;
                                     MainForm.Line_3[i] = false;
@@ -314,7 +400,6 @@ namespace TEST1
                                 }
                                 else if (!MainForm.Line_3[i] && j == 1)
                                 {
-                                    SetProgress(10 * (i + 1));
                                     MainForm.Line_2[i] = false;
                                     MainForm.Line_3[i] = true;
                                     MainForm.Line_1[i] = false;
@@ -336,7 +421,6 @@ namespace TEST1
                             {
                                 if (!MainForm.Line_2[i] && j == 0)
                                 {
-                                    SetProgress(10 * (i + 1));
                                     MainForm.Line_2[i] = true;
                                     MainForm.Line_1[i] = false;
                                     MainForm.Line_3[i] = false;
@@ -344,7 +428,7 @@ namespace TEST1
                                 }
                                 else if (!MainForm.Line_4[i] && j == 1)
                                 {
-                                    SetProgress(10 * (i + 1));
+                                  
                                     MainForm.Line_2[i] = false;
                                     MainForm.Line_3[i] = false;
                                     MainForm.Line_1[i] = false;
@@ -398,6 +482,10 @@ namespace TEST1
             MainForm.Mode = SelectMode.GROWTH;
 
             PB_FARM.Invalidate();
+            CB_HARVEST_LINE1.Enabled = false;
+            CB_HARVEST_LINE2.Enabled = false;
+            CB_GROWTH_TYPE.Enabled = true;
+            BTN_GROWTH_CHECK.Enabled = true;
         }
 
         private void BTN_PEST_ButtonClick(object sender, EventArgs e)
@@ -408,6 +496,10 @@ namespace TEST1
             MainForm.Mode = SelectMode.PEST;
 
             PB_FARM.Invalidate();
+            CB_HARVEST_LINE1.Enabled = false;
+            CB_HARVEST_LINE2.Enabled = false;
+            CB_GROWTH_TYPE.Enabled = false;
+            BTN_GROWTH_CHECK.Enabled = false;
         }
 
         private void BTN_HARVEST_ButtonClick(object sender, EventArgs e)
@@ -418,6 +510,10 @@ namespace TEST1
             MainForm.Mode = SelectMode.HARVEST;
 
             PB_FARM.Invalidate();
+            CB_HARVEST_LINE1.Enabled = true;
+            CB_HARVEST_LINE2.Enabled = true;
+            CB_GROWTH_TYPE.Enabled = false;
+            BTN_GROWTH_CHECK.Enabled = false;
         }
 
         public void ResetButton()
@@ -436,7 +532,7 @@ namespace TEST1
             seriesPoint.ColorSerializable = "#C81428";
             seriesPoint.Argument = "1";
             SeriesPoint seriesPoint2 = new SeriesPoint(6D, new object[] { ((object)(100 - Percent)) }, 0);
-            seriesPoint2.ColorSerializable = "#C8C8C8";
+            seriesPoint2.ColorSerializable = "#FFCCCC";
             seriesPoint2.Argument = "2";
 
             // Populate the series with points. 
@@ -460,12 +556,52 @@ namespace TEST1
 
         }
 
+        private void CB_GROWTH_LINE_ButtonClick(object sender, EventArgs e)
+        {
+            CB_HARVEST_LINE2.ClearItem();
+            int num = CB_HARVEST_LINE1.GetSelectedIndex();
+            if(num==0)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 1");
+                CB_HARVEST_LINE2.InsertItem("Line 2");
+                CB_HARVEST_LINE2.InsertItem("Line 3");
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+            if (num == 1)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 2");
+                CB_HARVEST_LINE2.InsertItem("Line 3");
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+            if (num == 2)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 3");
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+            if (num == 3)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+
+            CB_HARVEST_LINE2.SetSelectedIndex(0);
+            PB_FARM.Invalidate();
+        }
+
+        private void BTN_GROWTH_CHECK_ButtonClick(object sender, EventArgs e)
+        {
+            MainForm.Message_popup.ShowPopup("Do you want to start acquiring growth information?", "Growth information", false);
+            if (MainForm.Message_popup.YesNo)
+            {
+                // 정보취득 시작
+            }
+        }
+
         private void ChartInit()
         {
             CHART_GROWTH2.Series.Clear();
-            series[0] = new Series("OK", ViewType.Line);
-            series[1] = new Series("NG", ViewType.Line);
-            series[2] = new Series("TOTAL", ViewType.Line);
+            series[0] = new Series("Data1", ViewType.Line);
+            series[1] = new Series("Data2", ViewType.Line);
+            series[2] = new Series("Data3", ViewType.Line);
             //ChartControl에 Series 추가            
             CHART_GROWTH2.Series.Add(series[0]);
             CHART_GROWTH2.Series.Add(series[1]);

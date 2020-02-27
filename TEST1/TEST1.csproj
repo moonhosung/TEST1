@@ -203,5 +203,8 @@
   <ItemGroup>
     <None Include="Resources\Images\yellow_tomato.JPG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\common\ic\common_ic_wave.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 
+using System.Reflection;
+
 namespace TEST1
 {
     public partial class LoginDlg : Form
@@ -27,6 +29,9 @@ namespace TEST1
         private const int SW_SHOWMINIMIZED = 2;
         private const int SW_SHOWMAXIMIZED = 3;
 
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string filename);
 
         private static LoginDlg theInstance = null;
         public static LoginDlg CreateInstance()
@@ -123,6 +128,12 @@ namespace TEST1
         {
             TopMost = true;
             TopLevel = true;
+
+            Cursor mycursor = new Cursor(Cursor.Current.Handle);
+            //dinosau2.ani is in windows folder：
+            IntPtr colorcursorhandle = LoadCursorFromFile(Application.StartupPath + "\\Cursor.cur");
+            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+            this.Cursor = mycursor;
         }
 
         private void LoginDlg_Paint(object sender, PaintEventArgs e)

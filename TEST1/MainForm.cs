@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,16 +15,19 @@ namespace TEST1
 {
     public partial class MainForm : Form
     {
+        [DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string filename);
+        
 
         private static MainForm theInstance = null;
 
         private Form1_1 form1_1 = Form1_1.CreateInstance();
         private Form1_2 form1_2 = Form1_2.CreateInstance();
         private Form1_3 form1_3 = Form1_3.CreateInstance();
-
         public static LoginDlg LoginPopup = LoginDlg.CreateInstance();
         public static OpacityForm opacityForm = OpacityForm.CreateInstance();
         public static Message_Popup Message_popup = Message_Popup.CreateInstance();
+
 
         public static List<bool> PestLines = new List<bool>();
         public static List<bool> Line_1 =  new List<bool>();
@@ -52,6 +57,14 @@ namespace TEST1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Cursor mycursor = new Cursor(Cursor.Current.Handle);
+            //dinosau2.ani is in windows folder：
+            IntPtr colorcursorhandle = LoadCursorFromFile(Application.StartupPath + "\\Cursor.cur");
+            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+            this.Cursor = mycursor;
+
+          //  this.Cursor = new Cursor(Application.StartupPath + "\\Cursor.cur");
+
             this.BTN_MAIN_EXIT.UseVisualStyleBackColor = false;
             this.TLP_CENTER.Controls.Add(form1_1);
 
@@ -68,17 +81,20 @@ namespace TEST1
             BTN_BOTTOM_MENU5.SetType(true);
 
             BTN_LOGIN.SetText("LOGIN");
+
+            MenuVisible();
             BTN_RIGHT1.SetText("Menu 1");
             BTN_RIGHT2.SetText("Menu 2");
             BTN_RIGHT3.SetText("Menu 3");
             BTN_RIGHT4.SetText("Menu 4");
             BTN_RIGHT5.SetText("Menu 5");
 
-            BTN_BOTTOM_MENU1.SetText("Bottom 1");
-            BTN_BOTTOM_MENU2.SetText("Bottom 2");
-            BTN_BOTTOM_MENU3.SetText("Bottom 3");
-            BTN_BOTTOM_MENU4.SetText("Bottom 4");
-            BTN_BOTTOM_MENU5.SetText("Bottom 5");
+            BTN_BOTTOM_MENU1.SetCheck(true);
+            BTN_BOTTOM_MENU1.SetText("Home");
+            BTN_BOTTOM_MENU2.SetText("Recipe");
+            BTN_BOTTOM_MENU3.SetText("Log");
+            BTN_BOTTOM_MENU4.SetText("Alarm");
+            BTN_BOTTOM_MENU5.SetText("Setup");
 
             MovePosition temp = new MovePosition();
             temp.position = Position.LINE1_START;
@@ -96,6 +112,47 @@ namespace TEST1
             position = GetMovePosition(Position.STOP);
         }
 
+
+        private void MenuVisible(int range=0)
+        {
+            BTN_RIGHT1.Visible = false;
+            BTN_RIGHT2.Visible = false;
+            BTN_RIGHT3.Visible = false;
+            BTN_RIGHT4.Visible = false;
+            BTN_RIGHT5.Visible = false;
+            switch (range)
+            {
+                case 1:
+                    BTN_RIGHT1.Visible = true;
+                    break;
+
+                case 2:
+                    BTN_RIGHT1.Visible = true;
+                    BTN_RIGHT2.Visible = true;
+                    break;
+
+                case 3:
+                    BTN_RIGHT1.Visible = true;
+                    BTN_RIGHT2.Visible = true;
+                    BTN_RIGHT3.Visible = true;
+                    break;
+
+                case 4:
+                    BTN_RIGHT1.Visible = true;
+                    BTN_RIGHT2.Visible = true;
+                    BTN_RIGHT3.Visible = true;
+                    BTN_RIGHT4.Visible = true;
+                    break;
+
+                case 5:
+                    BTN_RIGHT1.Visible = true;
+                    BTN_RIGHT2.Visible = true;
+                    BTN_RIGHT3.Visible = true;
+                    BTN_RIGHT4.Visible = true;
+                    BTN_RIGHT5.Visible = true;
+                    break;
+            }
+        }
         private void button1_Load(object sender, EventArgs e)
         {
 
@@ -134,18 +191,18 @@ namespace TEST1
 
         private void BTN_RIGHT1_ButtonClick(object sender, EventArgs e)
         {
-            ResetButton();
-            BTN_RIGHT1.SetCheck(true);
-            TLP_CENTER.Controls.RemoveAt(1);
-            TLP_CENTER.Controls.Add(form1_1);
+            //ResetButton();
+            //BTN_RIGHT1.SetCheck(true);
+            //TLP_CENTER.Controls.RemoveAt(1);
+            //TLP_CENTER.Controls.Add(form1_1);
         }
 
         private void BTN_RIGHT2_ButtonClick(object sender, EventArgs e)
         {
-            ResetButton();
-            BTN_RIGHT2.SetCheck(true);
-            TLP_CENTER.Controls.RemoveAt(1);
-            TLP_CENTER.Controls.Add(form1_2);
+            //ResetButton();
+            //BTN_RIGHT2.SetCheck(true);
+            //TLP_CENTER.Controls.RemoveAt(1);
+            //TLP_CENTER.Controls.Add(form1_2);
         }
 
         public void ResetButton()
@@ -155,6 +212,13 @@ namespace TEST1
             BTN_RIGHT3.SetCheck(false);
             BTN_RIGHT4.SetCheck(false);
             BTN_RIGHT5.SetCheck(false);
+
+            BTN_BOTTOM_MENU1.SetCheck(false);
+            BTN_BOTTOM_MENU2.SetCheck(false);
+            BTN_BOTTOM_MENU3.SetCheck(false);
+            BTN_BOTTOM_MENU4.SetCheck(false);
+            BTN_BOTTOM_MENU5.SetCheck(false);
+
         }
 
         private void BTN_RIGHT3_ButtonClick(object sender, EventArgs e)
@@ -187,6 +251,43 @@ namespace TEST1
             LoginPopup.DesktopLocation = new Point(1920 / 2 - (LoginPopup.Width / 2), 1080 / 2 - (LoginPopup.Height / 2));
             LoginPopup.StartPosition = FormStartPosition.Manual;
             LoginPopup.ShowDialog();
+        }
+
+        private void BTN_BOTTOM_MENU1_ButtonClick(object sender, EventArgs e)
+        {
+
+            ResetButton();
+            BTN_BOTTOM_MENU1.SetCheck(true);
+            TLP_CENTER.Controls.RemoveAt(1);
+            TLP_CENTER.Controls.Add(form1_1);
+
+            MenuVisible(0);
+        }
+
+        private void BTN_BOTTOM_MENU2_ButtonClick(object sender, EventArgs e)
+        {
+
+            ResetButton();
+            BTN_BOTTOM_MENU2.SetCheck(true);
+            TLP_CENTER.Controls.RemoveAt(1);
+            TLP_CENTER.Controls.Add(form1_2);
+
+            MenuVisible(3);
+        }
+
+        private void BTN_BOTTOM_MENU3_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTN_BOTTOM_MENU4_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTN_BOTTOM_MENU5_ButtonClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

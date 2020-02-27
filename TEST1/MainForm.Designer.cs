@@ -43,18 +43,18 @@
             this.BTN_BOTTOM_MENU1 = new User_Control.Button();
             this.BTN_BOTTOM_MENU2 = new User_Control.Button();
             this.PN_TOP = new System.Windows.Forms.Panel();
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.BTN_LOGIN = new User_Control.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BTN_MAIN_EXIT = new System.Windows.Forms.Button();
             this.PB_LOGO = new System.Windows.Forms.PictureBox();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.MAIN_TLP.SuspendLayout();
             this.TLP_CENTER.SuspendLayout();
             this.TLP_RIGHT.SuspendLayout();
             this.TLP_BOTTOM.SuspendLayout();
             this.PN_TOP.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_LOGO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_LOGO)).BeginInit();
             this.SuspendLayout();
             // 
             // MAIN_TLP
@@ -183,6 +183,7 @@
             this.BTN_BOTTOM_MENU4.Name = "BTN_BOTTOM_MENU4";
             this.BTN_BOTTOM_MENU4.Size = new System.Drawing.Size(114, 109);
             this.BTN_BOTTOM_MENU4.TabIndex = 5;
+            this.BTN_BOTTOM_MENU4.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU4_ButtonClick);
             // 
             // BTN_BOTTOM_MENU5
             // 
@@ -190,6 +191,7 @@
             this.BTN_BOTTOM_MENU5.Name = "BTN_BOTTOM_MENU5";
             this.BTN_BOTTOM_MENU5.Size = new System.Drawing.Size(114, 109);
             this.BTN_BOTTOM_MENU5.TabIndex = 4;
+            this.BTN_BOTTOM_MENU5.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU5_ButtonClick);
             // 
             // BTN_BOTTOM_MENU3
             // 
@@ -197,6 +199,7 @@
             this.BTN_BOTTOM_MENU3.Name = "BTN_BOTTOM_MENU3";
             this.BTN_BOTTOM_MENU3.Size = new System.Drawing.Size(114, 109);
             this.BTN_BOTTOM_MENU3.TabIndex = 3;
+            this.BTN_BOTTOM_MENU3.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU3_ButtonClick);
             // 
             // BTN_BOTTOM_MENU1
             // 
@@ -204,6 +207,7 @@
             this.BTN_BOTTOM_MENU1.Name = "BTN_BOTTOM_MENU1";
             this.BTN_BOTTOM_MENU1.Size = new System.Drawing.Size(114, 109);
             this.BTN_BOTTOM_MENU1.TabIndex = 2;
+            this.BTN_BOTTOM_MENU1.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU1_ButtonClick);
             // 
             // BTN_BOTTOM_MENU2
             // 
@@ -211,6 +215,7 @@
             this.BTN_BOTTOM_MENU2.Name = "BTN_BOTTOM_MENU2";
             this.BTN_BOTTOM_MENU2.Size = new System.Drawing.Size(114, 109);
             this.BTN_BOTTOM_MENU2.TabIndex = 1;
+            this.BTN_BOTTOM_MENU2.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU2_ButtonClick);
             // 
             // PN_TOP
             // 
@@ -221,10 +226,20 @@
             this.PN_TOP.Controls.Add(this.BTN_MAIN_EXIT);
             this.PN_TOP.Controls.Add(this.PB_LOGO);
             this.PN_TOP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PN_TOP.Location = new System.Drawing.Point(3, 3);
+            this.PN_TOP.Location = new System.Drawing.Point(0, 0);
+            this.PN_TOP.Margin = new System.Windows.Forms.Padding(0);
             this.PN_TOP.Name = "PN_TOP";
-            this.PN_TOP.Size = new System.Drawing.Size(1914, 74);
+            this.PN_TOP.Size = new System.Drawing.Size(1920, 80);
             this.PN_TOP.TabIndex = 3;
+            // 
+            // separatorControl1
+            // 
+            this.separatorControl1.Location = new System.Drawing.Point(-3, 68);
+            this.separatorControl1.LookAndFeel.SkinName = "DevExpress Dark Style";
+            this.separatorControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.separatorControl1.Name = "separatorControl1";
+            this.separatorControl1.Size = new System.Drawing.Size(1917, 18);
+            this.separatorControl1.TabIndex = 10;
             // 
             // BTN_LOGIN
             // 
@@ -238,7 +253,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(147, 10);
+            this.label1.Location = new System.Drawing.Point(147, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(308, 45);
             this.label1.TabIndex = 8;
@@ -268,20 +283,11 @@
             // 
             this.PB_LOGO.BackgroundImage = global::TEST1.Properties.Resources.logo;
             this.PB_LOGO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PB_LOGO.Location = new System.Drawing.Point(11, 15);
+            this.PB_LOGO.Location = new System.Drawing.Point(11, 18);
             this.PB_LOGO.Name = "PB_LOGO";
             this.PB_LOGO.Size = new System.Drawing.Size(120, 42);
             this.PB_LOGO.TabIndex = 6;
             this.PB_LOGO.TabStop = false;
-            // 
-            // separatorControl1
-            // 
-            this.separatorControl1.Location = new System.Drawing.Point(-3, 64);
-            this.separatorControl1.LookAndFeel.SkinName = "DevExpress Dark Style";
-            this.separatorControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(1917, 18);
-            this.separatorControl1.TabIndex = 10;
             // 
             // MainForm
             // 
@@ -300,8 +306,8 @@
             this.TLP_BOTTOM.ResumeLayout(false);
             this.PN_TOP.ResumeLayout(false);
             this.PN_TOP.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_LOGO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_LOGO)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -319,15 +325,15 @@
         private User_Control.Button BTN_RIGHT1;
         private System.Windows.Forms.Panel PN_TOP;
         private System.Windows.Forms.PictureBox PB_LOGO;
-        private System.Windows.Forms.Button BTN_MAIN_EXIT;
         private User_Control.Button BTN_BOTTOM_MENU4;
         private User_Control.Button BTN_BOTTOM_MENU5;
         private User_Control.Button BTN_BOTTOM_MENU3;
         private User_Control.Button BTN_BOTTOM_MENU1;
         private User_Control.Button BTN_BOTTOM_MENU2;
-        private System.Windows.Forms.Label label1;
-        private User_Control.Button BTN_LOGIN;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
+        private User_Control.Button BTN_LOGIN;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BTN_MAIN_EXIT;
     }
 }
 
