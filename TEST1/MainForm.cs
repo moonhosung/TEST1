@@ -15,8 +15,8 @@ namespace TEST1
 {
     public partial class MainForm : Form
     {
-        [DllImport("user32.dll")]
-        public static extern IntPtr LoadCursorFromFile(string filename);
+        //[DllImport("user32.dll")]
+        //public static extern IntPtr LoadCursorFromFile(string filename);
         
 
         private static MainForm theInstance = null;
@@ -64,11 +64,11 @@ namespace TEST1
                                                      , int nHeightEllipse);
         private void Form1_Load(object sender, EventArgs e)
         {
-            Cursor mycursor = new Cursor(Cursor.Current.Handle);
-            //dinosau2.ani is in windows folder：
-            IntPtr colorcursorhandle = LoadCursorFromFile(Application.StartupPath + "\\Cursor.cur");
-            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-            this.Cursor = mycursor;
+            //Cursor mycursor = new Cursor(Cursor.Current.Handle);
+            ////dinosau2.ani is in windows folder：
+            //IntPtr colorcursorhandle = LoadCursorFromFile(Application.StartupPath + "\\Cursor.cur");
+            //mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+            //this.Cursor = mycursor;
 
           //  this.Cursor = new Cursor(Application.StartupPath + "\\Cursor.cur");
 
@@ -125,6 +125,8 @@ namespace TEST1
             BTN_MENU1.SetText("Main");
             BTN_MENU2.SetText("Log");
             BTN_MENU3.SetText("Setup");
+
+            BTN_MENU1.SetSelect(true);
         }
 
 
@@ -299,12 +301,14 @@ namespace TEST1
         {
             TLP_CENTER.Controls.RemoveAt(3);
             TLP_CENTER.Controls.Add(form1_1);
+            BTN_MENU2.SetSelect(false);
         }
 
         private void BTN_MENU2_ButtonClick(object sender, EventArgs e)
         {
             TLP_CENTER.Controls.RemoveAt(3);
             TLP_CENTER.Controls.Add(form1_2);
+            BTN_MENU1.SetSelect(false);
         }
     }
 }

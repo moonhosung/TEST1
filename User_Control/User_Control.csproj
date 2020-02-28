@@ -164,6 +164,12 @@
     <Compile Include="ComboBox.Designer.cs">
       <DependentUpon>ComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DateEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DateEdit.Designer.cs">
+      <DependentUpon>DateEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComboBox.resx">
       <DependentUpon>ComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateEdit.resx">
+      <DependentUpon>DateEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditBox.resx">
       <DependentUpon>EditBox.cs</DependentUpon>

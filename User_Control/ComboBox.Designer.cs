@@ -41,8 +41,8 @@ namespace User_Control
             this.comboBoxEdit1.Margin = new System.Windows.Forms.Padding(0);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.AllowFocused = false;
-            this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.comboBoxEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
             this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.comboBoxEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.comboBoxEdit1.Properties.Appearance.Options.UseBorderColor = true;

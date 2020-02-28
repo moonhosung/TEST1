@@ -28,10 +28,7 @@ namespace TEST1
         private const int SW_SHOWNORMAL = 1;
         private const int SW_SHOWMINIMIZED = 2;
         private const int SW_SHOWMAXIMIZED = 3;
-
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr LoadCursorFromFile(string filename);
+        
 
         private static LoginDlg theInstance = null;
         public static LoginDlg CreateInstance()
@@ -119,21 +116,13 @@ namespace TEST1
             this.Close();
             //Job job = Job.CreateInstance();
             // job.Job_Enter(null, null);
-
         }
-
 
 
         private void LoginDlg_Load(object sender, EventArgs e)
         {
             TopMost = true;
             TopLevel = true;
-
-            Cursor mycursor = new Cursor(Cursor.Current.Handle);
-            //dinosau2.ani is in windows folder：
-            IntPtr colorcursorhandle = LoadCursorFromFile(Application.StartupPath + "\\Cursor.cur");
-            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-            this.Cursor = mycursor;
         }
 
         private void LoginDlg_Paint(object sender, PaintEventArgs e)

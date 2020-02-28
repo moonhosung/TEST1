@@ -18,8 +18,6 @@ namespace TEST1
 {
     public partial class Message_Popup : Form
     {
-        [DllImport("user32.dll")]
-        public static extern IntPtr LoadCursorFromFile(string filename);
 
         public bool YesNo = false;
         private bool InPopup = false;
@@ -166,12 +164,7 @@ namespace TEST1
 
         private void Message_Popup_Load(object sender, EventArgs e)
         {
-
-            Cursor mycursor = new Cursor(Cursor.Current.Handle);
-            //dinosau2.ani is in windows folder：
-            IntPtr colorcursorhandle = LoadCursorFromFile(Application.StartupPath + "\\Cursor.cur");
-            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-            this.Cursor = mycursor;
+            
         }
     }
 }

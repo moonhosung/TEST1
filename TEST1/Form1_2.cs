@@ -29,7 +29,30 @@ namespace TEST1
 
         private void Form1_2_Load(object sender, EventArgs e)
         {
-            button1.SetText("Form1_2");
+
+            dateEdit1.SetMaxDate(); 
+            dateEdit2.SetMaxDate();
+        }
+
+        private void dateEdit1_Closed(object sender, EventArgs e)
+        {
+
+            dateEdit2.SetDate(dateEdit1.GetDate());
+        }
+
+        private void dateEdit1_Mouseclick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dateEdit2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateEdit2_Mouseclick(object sender, EventArgs e)
+        {
+
         }
     }
 }

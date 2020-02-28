@@ -18,7 +18,7 @@ namespace User_Control
         int loca = 96;
         int width = 30;
         int color = 50;
-        bool Start = false;
+        bool Select = false;
         public MenuButton()
         {
             InitializeComponent();
@@ -32,22 +32,27 @@ namespace User_Control
             //this.panel.Location = new System.Drawing.Point(loca, 64);
             //this.panel.Size = new System.Drawing.Size(width, 2);
             //this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(color)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
-        
-            timer1.Enabled = true;
-            timer1.Start();
+            if (!Select)
+            {
+                timer1.Enabled = true;
+                timer1.Start();
+            }
         }
 
         private void label_MouseLeave(object sender, EventArgs e)
         {
-            color = 50;
-            loca = 96;
-            width = 30;
-            this.panel.Location = new System.Drawing.Point(loca, 64);
-            this.panel.Size = new System.Drawing.Size(width, 2);
-            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(color)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
-          
-            timer1.Enabled = false;
-            timer1.Stop();
+            if (!Select)
+            {
+                color = 50;
+                loca = 96;
+                width = 30;
+                this.panel.Location = new System.Drawing.Point(loca, 64);
+                this.panel.Size = new System.Drawing.Size(width, 2);
+                this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(color)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+
+                timer1.Enabled = false;
+                timer1.Stop();
+            }
         }
 
         
@@ -69,8 +74,11 @@ namespace User_Control
             }
             else 
             {
-               // width = 30;
-               // loca = 96;
+
+                timer1.Enabled = false;
+                timer1.Stop();
+                // width = 30;
+                // loca = 96;
                 //this.separatorControl2.Location = new System.Drawing.Point(loca, 53);
                 //this.separatorControl2.Size = new System.Drawing.Size(width, 20);
                 //Thread.Sleep(5);
@@ -87,8 +95,32 @@ namespace User_Control
 
         }
 
+        public void SetSelect(bool select)
+        {
+            Select = select;
+            if(!Select)
+            {
+                color = 50;
+                loca = 96;
+                width = 30;
+                this.panel.Location = new System.Drawing.Point(loca, 64);
+                this.panel.Size = new System.Drawing.Size(width, 2);
+                this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(color)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+
+                timer1.Enabled = false;
+                timer1.Stop();
+
+            }
+            else
+            {
+                timer1.Enabled = true;
+                timer1.Start();
+            }
+        }
+
         private void label_Click(object sender, EventArgs e)
         {
+            Select = true;
             if (this.ButtonClick != null)
                 this.ButtonClick(this, e);
         }

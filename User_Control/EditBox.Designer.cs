@@ -38,7 +38,7 @@
             this.textEdit1.Location = new System.Drawing.Point(0, 0);
             this.textEdit1.Margin = new System.Windows.Forms.Padding(0);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.Properties.LookAndFeel.SkinName = "Office 2019 Colorful";
             this.textEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
