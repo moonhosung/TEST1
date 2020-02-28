@@ -73,7 +73,7 @@ namespace TEST1
             this.CHART_GROWTH.BackColor = System.Drawing.Color.Transparent;
             this.CHART_GROWTH.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.CHART_GROWTH.Legend.Name = "Default Legend";
-            this.CHART_GROWTH.Location = new System.Drawing.Point(13, 149);
+            this.CHART_GROWTH.Location = new System.Drawing.Point(13, 157);
             this.CHART_GROWTH.Name = "CHART_GROWTH";
             this.CHART_GROWTH.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
             this.CHART_GROWTH.Size = new System.Drawing.Size(594, 280);
@@ -95,7 +95,7 @@ namespace TEST1
             this.CHART_GROWTH2.BackColor = System.Drawing.Color.Transparent;
             this.CHART_GROWTH2.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.CHART_GROWTH2.Legend.Name = "Default Legend";
-            this.CHART_GROWTH2.Location = new System.Drawing.Point(12, 447);
+            this.CHART_GROWTH2.Location = new System.Drawing.Point(12, 473);
             this.CHART_GROWTH2.Name = "CHART_GROWTH2";
             this.CHART_GROWTH2.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
             this.CHART_GROWTH2.Size = new System.Drawing.Size(595, 256);

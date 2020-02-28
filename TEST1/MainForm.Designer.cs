@@ -78,7 +78,7 @@
             this.MAIN_TLP.RowCount = 3;
             this.MAIN_TLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.MAIN_TLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MAIN_TLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.MAIN_TLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.MAIN_TLP.Size = new System.Drawing.Size(1920, 1080);
             this.MAIN_TLP.TabIndex = 0;
             // 
@@ -99,7 +99,7 @@
             this.TLP_CENTER.Name = "TLP_CENTER";
             this.TLP_CENTER.RowCount = 1;
             this.TLP_CENTER.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_CENTER.Size = new System.Drawing.Size(1920, 880);
+            this.TLP_CENTER.Size = new System.Drawing.Size(1920, 999);
             this.TLP_CENTER.TabIndex = 1;
             this.TLP_CENTER.Paint += new System.Windows.Forms.PaintEventHandler(this.TLP_CENTER_Paint);
             // 
@@ -122,7 +122,7 @@
             this.TLP_RIGHT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.TLP_RIGHT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.TLP_RIGHT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.TLP_RIGHT.Size = new System.Drawing.Size(1, 874);
+            this.TLP_RIGHT.Size = new System.Drawing.Size(1, 993);
             this.TLP_RIGHT.TabIndex = 0;
             // 
             // TLP_MENU
@@ -144,7 +144,7 @@
             this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.TLP_MENU.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.TLP_MENU.Size = new System.Drawing.Size(244, 874);
+            this.TLP_MENU.Size = new System.Drawing.Size(244, 993);
             this.TLP_MENU.TabIndex = 1;
             // 
             // separatorControl2
@@ -155,7 +155,7 @@
             this.separatorControl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.separatorControl2.Margin = new System.Windows.Forms.Padding(0);
             this.separatorControl2.Name = "separatorControl2";
-            this.separatorControl2.Size = new System.Drawing.Size(20, 874);
+            this.separatorControl2.Size = new System.Drawing.Size(20, 996);
             this.separatorControl2.TabIndex = 17;
             // 
             // TLP_BOTTOM
@@ -176,12 +176,12 @@
             this.TLP_BOTTOM.Controls.Add(this.BTN_BOTTOM_MENU1, 0, 0);
             this.TLP_BOTTOM.Controls.Add(this.BTN_BOTTOM_MENU2, 0, 0);
             this.TLP_BOTTOM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TLP_BOTTOM.Location = new System.Drawing.Point(0, 960);
+            this.TLP_BOTTOM.Location = new System.Drawing.Point(0, 1079);
             this.TLP_BOTTOM.Margin = new System.Windows.Forms.Padding(0);
             this.TLP_BOTTOM.Name = "TLP_BOTTOM";
             this.TLP_BOTTOM.RowCount = 1;
             this.TLP_BOTTOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_BOTTOM.Size = new System.Drawing.Size(1920, 120);
+            this.TLP_BOTTOM.Size = new System.Drawing.Size(1920, 1);
             this.TLP_BOTTOM.TabIndex = 2;
             // 
             // PN_TOP
@@ -211,10 +211,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.label1.Location = new System.Drawing.Point(147, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(308, 45);
+            this.label1.Size = new System.Drawing.Size(290, 45);
             this.label1.TabIndex = 8;
             this.label1.Text = "SmartFarm System";
             // 
@@ -311,12 +312,13 @@
             this.BTN_MENU3.Name = "BTN_MENU3";
             this.BTN_MENU3.Size = new System.Drawing.Size(238, 84);
             this.BTN_MENU3.TabIndex = 0;
+            this.BTN_MENU3.ButtonClick += new System.EventHandler(this.BTN_MENU3_ButtonClick);
             // 
             // BTN_BOTTOM_MENU4
             // 
             this.BTN_BOTTOM_MENU4.Location = new System.Drawing.Point(363, 3);
             this.BTN_BOTTOM_MENU4.Name = "BTN_BOTTOM_MENU4";
-            this.BTN_BOTTOM_MENU4.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU4.Size = new System.Drawing.Size(114, 1);
             this.BTN_BOTTOM_MENU4.TabIndex = 5;
             this.BTN_BOTTOM_MENU4.Visible = false;
             this.BTN_BOTTOM_MENU4.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU4_ButtonClick);
@@ -325,7 +327,7 @@
             // 
             this.BTN_BOTTOM_MENU5.Location = new System.Drawing.Point(483, 3);
             this.BTN_BOTTOM_MENU5.Name = "BTN_BOTTOM_MENU5";
-            this.BTN_BOTTOM_MENU5.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU5.Size = new System.Drawing.Size(114, 1);
             this.BTN_BOTTOM_MENU5.TabIndex = 4;
             this.BTN_BOTTOM_MENU5.Visible = false;
             this.BTN_BOTTOM_MENU5.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU5_ButtonClick);
@@ -334,7 +336,7 @@
             // 
             this.BTN_BOTTOM_MENU3.Location = new System.Drawing.Point(243, 3);
             this.BTN_BOTTOM_MENU3.Name = "BTN_BOTTOM_MENU3";
-            this.BTN_BOTTOM_MENU3.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU3.Size = new System.Drawing.Size(114, 1);
             this.BTN_BOTTOM_MENU3.TabIndex = 3;
             this.BTN_BOTTOM_MENU3.Visible = false;
             this.BTN_BOTTOM_MENU3.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU3_ButtonClick);
@@ -343,7 +345,7 @@
             // 
             this.BTN_BOTTOM_MENU1.Location = new System.Drawing.Point(3, 3);
             this.BTN_BOTTOM_MENU1.Name = "BTN_BOTTOM_MENU1";
-            this.BTN_BOTTOM_MENU1.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU1.Size = new System.Drawing.Size(114, 1);
             this.BTN_BOTTOM_MENU1.TabIndex = 2;
             this.BTN_BOTTOM_MENU1.Visible = false;
             this.BTN_BOTTOM_MENU1.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU1_ButtonClick);
@@ -352,7 +354,7 @@
             // 
             this.BTN_BOTTOM_MENU2.Location = new System.Drawing.Point(123, 3);
             this.BTN_BOTTOM_MENU2.Name = "BTN_BOTTOM_MENU2";
-            this.BTN_BOTTOM_MENU2.Size = new System.Drawing.Size(114, 109);
+            this.BTN_BOTTOM_MENU2.Size = new System.Drawing.Size(114, 1);
             this.BTN_BOTTOM_MENU2.TabIndex = 1;
             this.BTN_BOTTOM_MENU2.Visible = false;
             this.BTN_BOTTOM_MENU2.ButtonClick += new System.EventHandler(this.BTN_BOTTOM_MENU2_ButtonClick);

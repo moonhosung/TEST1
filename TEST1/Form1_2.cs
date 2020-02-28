@@ -29,14 +29,13 @@ namespace TEST1
 
         private void Form1_2_Load(object sender, EventArgs e)
         {
-
+            dateEdit2.SetDate(dateEdit1.GetDate());
             dateEdit1.SetMaxDate(); 
             dateEdit2.SetMaxDate();
         }
 
         private void dateEdit1_Closed(object sender, EventArgs e)
         {
-
             dateEdit2.SetDate(dateEdit1.GetDate());
         }
 
@@ -53,6 +52,16 @@ namespace TEST1
         private void dateEdit2_Mouseclick(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_2_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.Silver), gridView_Log1.Left - 1, gridView_Log1.Top - 1, gridView_Log1.Width + 2, gridView_Log1.Height + 2);
+        }
+
+        private void dateEdit2_Closed(object sender, EventArgs e)
+        {
+            gridView_Log1.AddItem(DateTime.Now.ToString(), "user1","normal","test");
         }
     }
 }

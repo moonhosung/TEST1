@@ -87,7 +87,7 @@ namespace TEST1
             BTN_BOTTOM_MENU4.SetType(true);
             BTN_BOTTOM_MENU5.SetType(true);
 
-            BTN_LOGIN.SetText("LOGIN");
+            BTN_LOGIN.SetText("Login");
 
             MenuVisible();
             BTN_RIGHT1.SetText("Menu 1");
@@ -257,7 +257,6 @@ namespace TEST1
 
         private void BTN_BOTTOM_MENU1_ButtonClick(object sender, EventArgs e)
         {
-
             ResetButton();
             BTN_BOTTOM_MENU1.SetCheck(true);
             TLP_CENTER.Controls.RemoveAt(1);
@@ -268,7 +267,6 @@ namespace TEST1
 
         private void BTN_BOTTOM_MENU2_ButtonClick(object sender, EventArgs e)
         {
-
             ResetButton();
             BTN_BOTTOM_MENU2.SetCheck(true);
             TLP_CENTER.Controls.RemoveAt(1);
@@ -301,6 +299,7 @@ namespace TEST1
         {
             TLP_CENTER.Controls.RemoveAt(3);
             TLP_CENTER.Controls.Add(form1_1);
+            BTN_MENU3.SetSelect(false);
             BTN_MENU2.SetSelect(false);
         }
 
@@ -309,6 +308,15 @@ namespace TEST1
             TLP_CENTER.Controls.RemoveAt(3);
             TLP_CENTER.Controls.Add(form1_2);
             BTN_MENU1.SetSelect(false);
+            BTN_MENU3.SetSelect(false);
+        }
+
+        private void BTN_MENU3_ButtonClick(object sender, EventArgs e)
+        {
+            //TLP_CENTER.Controls.RemoveAt(3);
+            //TLP_CENTER.Controls.Add(form1_2);
+            BTN_MENU1.SetSelect(false);
+            BTN_MENU2.SetSelect(false);
         }
     }
 }
