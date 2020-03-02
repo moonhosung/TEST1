@@ -22,9 +22,9 @@ namespace TEST1.Function
             Network = 4,
             Error = 5
         }
-
+        
         private static Mutex mtx = new Mutex(false, "LogSave");
-
+     
         /// <summary>
         /// Add Log Message in the ListBox
         /// </summary>
@@ -313,6 +313,13 @@ namespace TEST1.Function
             {
                 CLog.SaveLogFile(ex.ToString(), (int)CLog.LogType.Error);
             }
+        }
+
+        public static void InsertLog(string LogCase, string Text)
+        {
+            string CurrentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Communication com = Communication.CreateInstance();
+            com.DBQuery("Insert into log (LogCase, DateTime,LogText,User) VALUES('" + "normal" + "', '" + CurrentTime + "','" + "test1" + "','" + "user1" + "')");
         }
     }
 }

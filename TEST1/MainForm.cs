@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TEST1.Function;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace TEST1
     {
         //[DllImport("user32.dll")]
         //public static extern IntPtr LoadCursorFromFile(string filename);
-        
+      
 
         private static MainForm theInstance = null;
 
@@ -27,7 +28,8 @@ namespace TEST1
         public static LoginDlg LoginPopup = LoginDlg.CreateInstance();
         public static OpacityForm opacityForm = OpacityForm.CreateInstance();
         public static Message_Popup Message_popup = Message_Popup.CreateInstance();
-
+        
+        private Communication Commni = Communication.CreateInstance();
 
         public static List<bool> PestLines = new List<bool>();
         public static List<bool> Line_1 =  new List<bool>();
@@ -74,6 +76,11 @@ namespace TEST1
 
             this.BTN_MAIN_EXIT.UseVisualStyleBackColor = false;
             this.TLP_CENTER.Controls.Add(form1_1);
+
+
+            Commni.DBInitialize("127.0.0.1", "test1", "root", "1234"); //DB연결문
+            bool DBConnection = Commni.OpenConnection(); //DB_Init
+
 
             BTN_LOGIN.SetType(true);
             BTN_RIGHT1.SetType(true);
@@ -173,9 +180,12 @@ namespace TEST1
 
         private void BTN_MAIN_EXIT_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process[] mProcess = System.Diagnostics.Process.GetProcessesByName(Application.ProductName);
-            foreach (System.Diagnostics.Process p in mProcess)
-                p.Kill();
+            Commni.DBCloseConnection();
+            //System.Diagnostics.Process[] mProcess = System.Diagnostics.Process.GetProcessesByName(Application.ProductName);
+            //foreach (System.Diagnostics.Process p in mProcess)
+            //    p.Kill();
+            Application.ExitThread();
+            Environment.Exit(0);
         }
         
 
@@ -230,6 +240,8 @@ namespace TEST1
             BTN_RIGHT3.SetCheck(true);
             TLP_CENTER.Controls.RemoveAt(1);
             TLP_CENTER.Controls.Add(form1_3);
+
+
         }
 
         private MovePosition GetMovePosition(Position position)
@@ -309,6 +321,7 @@ namespace TEST1
             TLP_CENTER.Controls.Add(form1_2);
             BTN_MENU1.SetSelect(false);
             BTN_MENU3.SetSelect(false);
+            form1_2.TodayLog();
         }
 
         private void BTN_MENU3_ButtonClick(object sender, EventArgs e)

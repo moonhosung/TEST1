@@ -232,7 +232,7 @@ namespace TEST1
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
-            this.pictureBox2.Location = new System.Drawing.Point(32, 55);
+            this.pictureBox2.Location = new System.Drawing.Point(32, 56);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(25, 3);

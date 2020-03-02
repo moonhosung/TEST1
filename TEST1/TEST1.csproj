@@ -56,6 +56,9 @@
     <Reference Include="DevExpress.XtraGauges.v19.2.Win, Version=19.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>Function\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -91,6 +94,7 @@
       <DependentUpon>Form1_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\CLog.cs" />
+    <Compile Include="Function\Communication.cs" />
     <Compile Include="Function\CUIInvoke.cs" />
     <Compile Include="Function\Struct.cs" />
     <Compile Include="LoginDlg.cs">

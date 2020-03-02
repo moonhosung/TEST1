@@ -72,6 +72,7 @@
             this.gridView_Log1 = new User_Control.GridView_Log();
             this.dateEdit2 = new User_Control.DateEdit();
             this.dateEdit1 = new User_Control.DateEdit();
+            this.button1 = new User_Control.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
@@ -139,7 +140,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
-            this.pictureBox2.Location = new System.Drawing.Point(32, 55);
+            this.pictureBox2.Location = new System.Drawing.Point(32, 56);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(25, 3);
@@ -182,10 +183,19 @@
             this.dateEdit1.Mouseclick += new System.EventHandler(this.dateEdit1_Mouseclick);
             this.dateEdit1.Closed += new System.EventHandler(this.dateEdit1_Closed);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(700, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 50);
+            this.button1.TabIndex = 28;
+            this.button1.ButtonClick += new System.EventHandler(this.button1_ButtonClick);
+            // 
             // Form1_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.gridView_Log1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateEdit2);
@@ -197,6 +207,7 @@
             this.Size = new System.Drawing.Size(1609, 883);
             this.Load += new System.EventHandler(this.Form1_2_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_2_Paint);
+            this.Enter += new System.EventHandler(this.Form1_2_Enter);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(stackedLineSeriesView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
@@ -219,5 +230,6 @@
         private User_Control.DateEdit dateEdit2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private User_Control.GridView_Log gridView_Log1;
+        private User_Control.Button button1;
     }
 }

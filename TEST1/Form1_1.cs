@@ -204,14 +204,14 @@ namespace TEST1
                }
                else
                {
-                   if(MainForm.position.position == Position.LINE1_START)
-                   {
-                       MainForm.position = GetMovePosition(Position.LINE1_END);
-                   }
-                   else if (MainForm.position.position == Position.LINE1_END)
-                   {
-                       MainForm.position = GetMovePosition(Position.LINE1_END2);
-                   }
+                   //if(MainForm.position.position == Position.LINE1_START)
+                   //{
+                   //    MainForm.position = GetMovePosition(Position.LINE1_END);
+                   //}
+                   //else if (MainForm.position.position == Position.LINE1_END)
+                   //{
+                   //    MainForm.position = GetMovePosition(Position.LINE1_END2);
+                   //}
 
                 }
            }

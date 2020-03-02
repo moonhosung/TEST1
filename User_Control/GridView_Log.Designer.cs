@@ -49,7 +49,7 @@ namespace User_Control
             this.gridControl1.DataSource = this.bindingSource1;
             resources.ApplyResources(this.gridControl1, "gridControl1");
             this.gridControl1.LookAndFeel.SkinMaskColor = System.Drawing.Color.Red;
-            this.gridControl1.LookAndFeel.SkinName = "Visual Studio 2013 Light";
+            this.gridControl1.LookAndFeel.SkinName = "Office 2019 White";
             this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
