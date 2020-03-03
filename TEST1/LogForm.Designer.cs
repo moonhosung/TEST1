@@ -1,6 +1,6 @@
 ﻿namespace TEST1
 {
-    partial class Form1_2
+    partial class LogForm
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -185,13 +185,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(700, 59);
+            this.button1.Location = new System.Drawing.Point(1268, 75);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 50);
+            this.button1.Size = new System.Drawing.Size(121, 34);
             this.button1.TabIndex = 28;
             this.button1.ButtonClick += new System.EventHandler(this.button1_ButtonClick);
             // 
-            // Form1_2
+            // LogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -203,11 +203,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.chartControl1);
-            this.Name = "Form1_2";
+            this.Name = "LogForm";
             this.Size = new System.Drawing.Size(1609, 883);
-            this.Load += new System.EventHandler(this.Form1_2_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_2_Paint);
-            this.Enter += new System.EventHandler(this.Form1_2_Enter);
+            this.Load += new System.EventHandler(this.LogForm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.LogForm_Paint);
+            this.Enter += new System.EventHandler(this.LogForm_Enter);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(stackedLineSeriesView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();

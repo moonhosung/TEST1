@@ -135,7 +135,7 @@
     <value>Microsoft Sans Serif, 13pt</value>
   </data>
   <data name="gridColumn1.AppearanceCell.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13pt</value>
+    <value>맑은 고딕, 12.75pt, style=Bold</value>
   </data>
   <data name="gridColumn1.Caption" xml:space="preserve">
     <value>Date</value>

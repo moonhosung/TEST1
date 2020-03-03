@@ -22,9 +22,9 @@ namespace TEST1
 
         private static MainForm theInstance = null;
 
-        private Form1_1 form1_1 = Form1_1.CreateInstance();
-        private Form1_2 form1_2 = Form1_2.CreateInstance();
-        private Form1_3 form1_3 = Form1_3.CreateInstance();
+        private Main main = Main.CreateInstance();
+        private LogForm LogForm = LogForm.CreateInstance();
+        private SetupForm SetupForm = SetupForm.CreateInstance();
         public static LoginDlg LoginPopup = LoginDlg.CreateInstance();
         public static OpacityForm opacityForm = OpacityForm.CreateInstance();
         public static Message_Popup Message_popup = Message_Popup.CreateInstance();
@@ -75,13 +75,11 @@ namespace TEST1
           //  this.Cursor = new Cursor(Application.StartupPath + "\\Cursor.cur");
 
             this.BTN_MAIN_EXIT.UseVisualStyleBackColor = false;
-            this.TLP_CENTER.Controls.Add(form1_1);
-
-
+            this.TLP_CENTER.Controls.Add(main);
+            
             Commni.DBInitialize("127.0.0.1", "test1", "root", "1234"); //DB연결문
             bool DBConnection = Commni.OpenConnection(); //DB_Init
-
-
+            
             BTN_LOGIN.SetType(true);
             BTN_RIGHT1.SetType(true);
             BTN_RIGHT2.SetType(true);
@@ -206,7 +204,7 @@ namespace TEST1
             //ResetButton();
             //BTN_RIGHT1.SetCheck(true);
             //TLP_CENTER.Controls.RemoveAt(1);
-            //TLP_CENTER.Controls.Add(form1_1);
+            //TLP_CENTER.Controls.Add(main);
         }
 
         private void BTN_RIGHT2_ButtonClick(object sender, EventArgs e)
@@ -214,7 +212,7 @@ namespace TEST1
             //ResetButton();
             //BTN_RIGHT2.SetCheck(true);
             //TLP_CENTER.Controls.RemoveAt(1);
-            //TLP_CENTER.Controls.Add(form1_2);
+            //TLP_CENTER.Controls.Add(LogForm);
         }
 
         public void ResetButton()
@@ -239,9 +237,7 @@ namespace TEST1
             ResetButton();
             BTN_RIGHT3.SetCheck(true);
             TLP_CENTER.Controls.RemoveAt(1);
-            TLP_CENTER.Controls.Add(form1_3);
-
-
+            TLP_CENTER.Controls.Add(SetupForm);
         }
 
         private MovePosition GetMovePosition(Position position)
@@ -272,7 +268,7 @@ namespace TEST1
             ResetButton();
             BTN_BOTTOM_MENU1.SetCheck(true);
             TLP_CENTER.Controls.RemoveAt(1);
-            TLP_CENTER.Controls.Add(form1_1);
+            TLP_CENTER.Controls.Add(main);
 
             MenuVisible(0);
         }
@@ -282,7 +278,7 @@ namespace TEST1
             ResetButton();
             BTN_BOTTOM_MENU2.SetCheck(true);
             TLP_CENTER.Controls.RemoveAt(1);
-            TLP_CENTER.Controls.Add(form1_2);
+            TLP_CENTER.Controls.Add(LogForm);
 
             MenuVisible(3);
         }
@@ -310,7 +306,7 @@ namespace TEST1
         private void BTN_MENU1_ButtonClick(object sender, EventArgs e)
         {
             TLP_CENTER.Controls.RemoveAt(3);
-            TLP_CENTER.Controls.Add(form1_1);
+            TLP_CENTER.Controls.Add(main);
             BTN_MENU3.SetSelect(false);
             BTN_MENU2.SetSelect(false);
         }
@@ -318,16 +314,16 @@ namespace TEST1
         private void BTN_MENU2_ButtonClick(object sender, EventArgs e)
         {
             TLP_CENTER.Controls.RemoveAt(3);
-            TLP_CENTER.Controls.Add(form1_2);
+            TLP_CENTER.Controls.Add(LogForm);
             BTN_MENU1.SetSelect(false);
             BTN_MENU3.SetSelect(false);
-            form1_2.TodayLog();
+            LogForm.TodayLog();
         }
 
         private void BTN_MENU3_ButtonClick(object sender, EventArgs e)
         {
-            //TLP_CENTER.Controls.RemoveAt(3);
-            //TLP_CENTER.Controls.Add(form1_2);
+            TLP_CENTER.Controls.RemoveAt(3);
+            TLP_CENTER.Controls.Add(SetupForm);
             BTN_MENU1.SetSelect(false);
             BTN_MENU2.SetSelect(false);
         }

@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace TEST1
 {
 
-    partial class Form1_1
+    partial class Main
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -39,6 +39,7 @@ namespace TEST1
             this.CHART_GROWTH2 = new DevExpress.XtraCharts.ChartControl();
             this.LB_HARVEST = new System.Windows.Forms.Label();
             this.PN_GROWTH_INFO = new System.Windows.Forms.Panel();
+            this.PB_GROWTH = new System.Windows.Forms.PictureBox();
             this.CB_GROWTH_TYPE = new User_Control.ComboBox();
             this.BTN_GROWTH_CHECK = new User_Control.Button();
             this.PN_GROWTH_LINE = new System.Windows.Forms.Panel();
@@ -55,6 +56,7 @@ namespace TEST1
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH2)).BeginInit();
             this.PN_GROWTH_INFO.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_GROWTH)).BeginInit();
             this.PN_GROWTH_LINE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AGV1)).BeginInit();
@@ -73,10 +75,10 @@ namespace TEST1
             this.CHART_GROWTH.BackColor = System.Drawing.Color.Transparent;
             this.CHART_GROWTH.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.CHART_GROWTH.Legend.Name = "Default Legend";
-            this.CHART_GROWTH.Location = new System.Drawing.Point(13, 157);
+            this.CHART_GROWTH.Location = new System.Drawing.Point(349, 158);
             this.CHART_GROWTH.Name = "CHART_GROWTH";
             this.CHART_GROWTH.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.CHART_GROWTH.Size = new System.Drawing.Size(594, 280);
+            this.CHART_GROWTH.Size = new System.Drawing.Size(299, 280);
             this.CHART_GROWTH.TabIndex = 5;
             // 
             // LB_GROWTH
@@ -95,10 +97,10 @@ namespace TEST1
             this.CHART_GROWTH2.BackColor = System.Drawing.Color.Transparent;
             this.CHART_GROWTH2.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.CHART_GROWTH2.Legend.Name = "Default Legend";
-            this.CHART_GROWTH2.Location = new System.Drawing.Point(12, 473);
+            this.CHART_GROWTH2.Location = new System.Drawing.Point(32, 473);
             this.CHART_GROWTH2.Name = "CHART_GROWTH2";
             this.CHART_GROWTH2.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.CHART_GROWTH2.Size = new System.Drawing.Size(595, 256);
+            this.CHART_GROWTH2.Size = new System.Drawing.Size(602, 256);
             this.CHART_GROWTH2.TabIndex = 14;
             // 
             // LB_HARVEST
@@ -115,6 +117,7 @@ namespace TEST1
             // PN_GROWTH_INFO
             // 
             this.PN_GROWTH_INFO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.PN_GROWTH_INFO.Controls.Add(this.PB_GROWTH);
             this.PN_GROWTH_INFO.Controls.Add(this.CB_GROWTH_TYPE);
             this.PN_GROWTH_INFO.Controls.Add(this.BTN_GROWTH_CHECK);
             this.PN_GROWTH_INFO.Controls.Add(this.CHART_GROWTH2);
@@ -122,23 +125,33 @@ namespace TEST1
             this.PN_GROWTH_INFO.Controls.Add(this.LB_GROWTH);
             this.PN_GROWTH_INFO.Location = new System.Drawing.Point(974, 132);
             this.PN_GROWTH_INFO.Name = "PN_GROWTH_INFO";
-            this.PN_GROWTH_INFO.Size = new System.Drawing.Size(613, 810);
+            this.PN_GROWTH_INFO.Size = new System.Drawing.Size(665, 810);
             this.PN_GROWTH_INFO.TabIndex = 17;
+            this.PN_GROWTH_INFO.Paint += new System.Windows.Forms.PaintEventHandler(this.PN_GROWTH_INFO_Paint);
+            // 
+            // PB_GROWTH
+            // 
+            this.PB_GROWTH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PB_GROWTH.Location = new System.Drawing.Point(32, 158);
+            this.PB_GROWTH.Name = "PB_GROWTH";
+            this.PB_GROWTH.Size = new System.Drawing.Size(288, 280);
+            this.PB_GROWTH.TabIndex = 17;
+            this.PB_GROWTH.TabStop = false;
             // 
             // CB_GROWTH_TYPE
             // 
             this.CB_GROWTH_TYPE.Location = new System.Drawing.Point(32, 92);
             this.CB_GROWTH_TYPE.Margin = new System.Windows.Forms.Padding(0);
             this.CB_GROWTH_TYPE.Name = "CB_GROWTH_TYPE";
-            this.CB_GROWTH_TYPE.Size = new System.Drawing.Size(260, 35);
+            this.CB_GROWTH_TYPE.Size = new System.Drawing.Size(288, 35);
             this.CB_GROWTH_TYPE.TabIndex = 16;
             this.CB_GROWTH_TYPE.ButtonClick += new System.EventHandler(this.CB_GROWTH_TYPE_ButtonClick);
             // 
             // BTN_GROWTH_CHECK
             // 
-            this.BTN_GROWTH_CHECK.Location = new System.Drawing.Point(317, 92);
+            this.BTN_GROWTH_CHECK.Location = new System.Drawing.Point(362, 92);
             this.BTN_GROWTH_CHECK.Name = "BTN_GROWTH_CHECK";
-            this.BTN_GROWTH_CHECK.Size = new System.Drawing.Size(260, 35);
+            this.BTN_GROWTH_CHECK.Size = new System.Drawing.Size(272, 35);
             this.BTN_GROWTH_CHECK.TabIndex = 15;
             this.BTN_GROWTH_CHECK.ButtonClick += new System.EventHandler(this.BTN_GROWTH_CHECK_ButtonClick);
             // 
@@ -250,7 +263,7 @@ namespace TEST1
             this.label2.Text = "Main";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Form1_1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,14 +277,15 @@ namespace TEST1
             this.Controls.Add(this.BTN_GROWTH);
             this.Controls.Add(this.PB_AGV1);
             this.Controls.Add(this.PB_FARM);
-            this.Name = "Form1_1";
-            this.Size = new System.Drawing.Size(1609, 957);
-            this.Load += new System.EventHandler(this.Form1_1_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_1_Paint);
+            this.Name = "Main";
+            this.Size = new System.Drawing.Size(1655, 957);
+            this.Load += new System.EventHandler(this.Main_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Main_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH2)).EndInit();
             this.PN_GROWTH_INFO.ResumeLayout(false);
             this.PN_GROWTH_INFO.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_GROWTH)).EndInit();
             this.PN_GROWTH_LINE.ResumeLayout(false);
             this.PN_GROWTH_LINE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -302,5 +316,6 @@ namespace TEST1
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox PB_GROWTH;
     }
 }

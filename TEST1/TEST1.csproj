@@ -75,23 +75,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1_3.cs">
+    <Compile Include="SetupForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Form1_3.Designer.cs">
-      <DependentUpon>Form1_3.cs</DependentUpon>
+    <Compile Include="SetupForm.Designer.cs">
+      <DependentUpon>SetupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1_2.cs">
+    <Compile Include="LogForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Form1_2.Designer.cs">
-      <DependentUpon>Form1_2.cs</DependentUpon>
+    <Compile Include="LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1_1.cs">
+    <Compile Include="Main.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Form1_1.Designer.cs">
-      <DependentUpon>Form1_1.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\CLog.cs" />
     <Compile Include="Function\Communication.cs" />
@@ -123,14 +123,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1_3.resx">
-      <DependentUpon>Form1_3.cs</DependentUpon>
+    <EmbeddedResource Include="SetupForm.resx">
+      <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1_2.resx">
-      <DependentUpon>Form1_2.cs</DependentUpon>
+    <EmbeddedResource Include="LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1_1.resx">
-      <DependentUpon>Form1_1.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginDlg.resx">
       <DependentUpon>LoginDlg.cs</DependentUpon>

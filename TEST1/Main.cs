@@ -12,10 +12,11 @@ using TEST1.Function;
 using DevExpress.XtraCharts;
 using DevExpress.Utils;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace TEST1
 {
-    public partial class Form1_1 : UserControl
+    public partial class Main : UserControl
     {
 
         Series[] series = new Series[3];
@@ -30,20 +31,21 @@ namespace TEST1
         int PestLineCount = 5;
         Random r = new Random();
         int r1, r2;
+        public Bitmap img;
 
         DoughnutSeriesView doughnutSeriesView1 = new DoughnutSeriesView();
 
-        private static Form1_1 theInstance = null;
-        public static Form1_1 CreateInstance()
+        private static Main theInstance = null;
+        public static Main CreateInstance()
         {
             if (theInstance == null)
             {
-                theInstance = new Form1_1();
+                theInstance = new Main();
             }
             return theInstance;
         }
 
-        public Form1_1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -55,7 +57,7 @@ namespace TEST1
                                                      , int nWidthEllipse
                                                      , int nHeightEllipse);
 
-        private void Form1_1_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < LocationCountY; i++)
             {
@@ -86,12 +88,12 @@ namespace TEST1
 
             ChartInit();
 
-            SetProgress(0);
+            //SetProgress(0);
 
-            for (int k = 0; k < 4; k++)
-            {
-                ChartUpdate(k, 0, 0);
-            }
+            //for (int k = 0; k < 4; k++)
+            //{
+            //    ChartUpdate(k, 0, 0);
+            //}
             CB_HARVEST_LINE1.InsertItem("Line 1");
             CB_HARVEST_LINE1.InsertItem("Line 2");
             CB_HARVEST_LINE1.InsertItem("Line 3");
@@ -125,21 +127,35 @@ namespace TEST1
                 MainForm.Line_3[i] = false;
                 MainForm.Line_4[i] = false;
             }
-            int temp = r.Next(0, 9);
-            MainForm.Line_1[temp] = true;
-            temp = r.Next(0, 9);
-            MainForm.Line_2[temp] = true;
-            temp = r.Next(0, 9);
-            MainForm.Line_3[temp] = true;
-            temp = r.Next(0, 9);
-            MainForm.Line_4[temp] = true;
+            int R = r.Next(0, 9);
+            MainForm.Line_1[R] = true;
+            R = r.Next(0, 9);
+            MainForm.Line_2[R] = true;
+            R = r.Next(0, 9);
+            MainForm.Line_3[R] = true;
+            R = r.Next(0, 9);
+            MainForm.Line_4[R] = true;
             PB_FARM.Invalidate();
 
+            SetProgress(10);
+
+            for (int k = 0; k < 4; k++)
+            {
+                ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
+            }
+            LB_GROWTH.Text = "Line 1_1 Growth Information";
+
+            string strExePath = Directory.GetCurrentDirectory(); //실행 Directory.
+            string strFilePath;
             
+            strFilePath = strExePath + "\\Image\\" + "1" + ".JPG";
+            Image temp = Image.FromFile(strFilePath);
+            img = temp as Bitmap;
+            PB_GROWTH.BackgroundImage = temp;
         }
 
 
-        private void Form1_1_Paint(object sender, PaintEventArgs e)
+        private void Main_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(new Pen(Color.Silver), PB_FARM.Left - 1, PB_FARM.Top - 1, PB_FARM.Width + 2, PB_FARM.Height + 2);
         }
@@ -332,6 +348,9 @@ namespace TEST1
 
         private void PB_FARM_Click(object sender, EventArgs e)
         {
+            string strExePath = Directory.GetCurrentDirectory(); //실행 Directory.
+            string strFilePath;
+
             if (MainForm.Mode == SelectMode.GROWTH)
             {
                 for (int i = 0; i < LocationCountY; i++)
@@ -345,6 +364,11 @@ namespace TEST1
                             ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
                         }
                         LB_GROWTH.Text = "Line 1_" + (i + 1).ToString() + " Growth Information";
+
+                        strFilePath = strExePath + "\\Image\\" + "1" + ".JPG";
+                        Image temp = Image.FromFile(strFilePath);
+                        img = temp as Bitmap;
+                        PB_GROWTH.BackgroundImage = temp;
                         //MainForm.Message_popup.ShowPopup("Form Open1_" + (i + 1).ToString(), false);
                     }
                     if (MainForm.Line_2[i])
@@ -355,9 +379,16 @@ namespace TEST1
                         {
                             ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
                         }
+
+                        strFilePath = strExePath + "\\Image\\" + "2" + ".JPG";
+                        Image temp = Image.FromFile(strFilePath);
+                        img = temp as Bitmap;
+                        PB_GROWTH.BackgroundImage = temp;
                         LB_GROWTH.Text = "Line 2_" + (i + 1).ToString() + " Growth Information";
                         //MainForm.Message_popup.ShowPopup("Form Open2_" + (i + 1).ToString(), false);
                     }
+
+
                     if (MainForm.Line_3[i])
                     {
                         SetProgress(10 * (i + 1));
@@ -366,6 +397,12 @@ namespace TEST1
                         {
                             ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
                         }
+
+
+                        strFilePath = strExePath + "\\Image\\" + "3" + ".JPG";
+                        Image temp = Image.FromFile(strFilePath);
+                        img = temp as Bitmap;
+                        PB_GROWTH.BackgroundImage = temp;
                         LB_GROWTH.Text = "Line 3_" + (i + 1).ToString() + " Growth Information";
                         //MainForm.Message_popup.ShowPopup("Form Open3_" + (i + 1).ToString(), false);
                     }
@@ -377,6 +414,11 @@ namespace TEST1
                         {
                             ChartUpdate(k, r.Next(0, 5), r.Next(0, 5));
                         }
+                        strFilePath = strExePath + "\\Image\\" + "1" + ".JPG";
+                        Image temp = Image.FromFile(strFilePath);
+                        img = temp as Bitmap;
+                        PB_GROWTH.BackgroundImage = temp;
+                        
                         LB_GROWTH.Text = "Line 4_" + (i + 1).ToString() + " Growth Information";
                         //MainForm.Message_popup.ShowPopup("Form Open4_" + (i + 1).ToString(), false);
                     }
@@ -564,6 +606,8 @@ namespace TEST1
             //doughnutSeriesView1.TotalLabel.TextPattern = "23%";
             doughnutSeriesView1.SweepDirection = PieSweepDirection.Clockwise;
 
+            CHART_GROWTH.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.RightOutside;
+            CHART_GROWTH.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
             series1.View = doughnutSeriesView1;
 
             // Add the series to the chart. 
@@ -651,6 +695,11 @@ namespace TEST1
                 }
             }
             PB_FARM.Invalidate();
+        }
+
+        private void PN_GROWTH_INFO_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.PaleVioletRed, 4), PB_GROWTH.Left - 2, PB_GROWTH.Top - 2, PB_GROWTH.Width + 4, PB_GROWTH.Height + 4);
         }
 
         private void ChartInit()

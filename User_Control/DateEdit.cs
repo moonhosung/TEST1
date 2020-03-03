@@ -25,9 +25,14 @@ namespace User_Control
             if (this.Closed != null)
                 this.Closed(this, e);
         }
-        public void SetDate(DateTime date)
+        public void SetMinDate(DateTime date)
         {
             dateEdit1.Properties.MinValue = date;
+        }
+
+        public void SetDate(DateTime date)
+        {
+            dateEdit1.DateTime = date;
         }
         public DateTime GetDate()
         {
