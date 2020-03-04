@@ -49,6 +49,7 @@ namespace TEST1
         {
             InitializeComponent();
         }
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect
                                                      , int nTopRect
@@ -107,8 +108,25 @@ namespace TEST1
             CB_HARVEST_LINE1.SetSelectedIndex(0);
             CB_HARVEST_LINE2.SetSelectedIndex(0);
 
+            CB_PEST_LINE1.InsertItem("Line 1");
+            CB_PEST_LINE1.InsertItem("Line 2");
+            CB_PEST_LINE1.InsertItem("Line 3");
+            CB_PEST_LINE1.InsertItem("Line 4");
+
+            CB_PEST_LINE2.InsertItem("Line 1");
+            CB_PEST_LINE2.InsertItem("Line 2");
+            CB_PEST_LINE2.InsertItem("Line 3");
+            CB_PEST_LINE2.InsertItem("Line 4");
+
+            CB_PEST_LINE1.SetSelectedIndex(0);
+            CB_PEST_LINE2.SetSelectedIndex(0);
+
+            PN_GROWTH_INFO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            PN_HARVEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            PN_PEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             PN_GROWTH_INFO.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, PN_GROWTH_INFO.Width, PN_GROWTH_INFO.Height, 30, 30));
-            PN_GROWTH_LINE.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, PN_GROWTH_LINE.Width, PN_GROWTH_LINE.Height, 30, 30));
+            PN_HARVEST.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, PN_HARVEST.Width, PN_HARVEST.Height, 30, 30));
+            PN_PEST.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, PN_PEST.Width, PN_PEST.Height, 30, 30));
 
             BTN_GROWTH_CHECK.SetText("Growth Info Check");
             BTN_GROWTH_CHECK.SetType(true);
@@ -120,22 +138,22 @@ namespace TEST1
             CB_GROWTH_TYPE.InsertItem("Sample");
             CB_GROWTH_TYPE.InsertItem("All");
             CB_GROWTH_TYPE.SetSelectedIndex(0);
-            for (int i = 0; i < LocationCountY; i++)
-            {
-                MainForm.Line_1[i] = false;
-                MainForm.Line_2[i] = false;
-                MainForm.Line_3[i] = false;
-                MainForm.Line_4[i] = false;
-            }
-            int R = r.Next(0, 9);
-            MainForm.Line_1[R] = true;
-            R = r.Next(0, 9);
-            MainForm.Line_2[R] = true;
-            R = r.Next(0, 9);
-            MainForm.Line_3[R] = true;
-            R = r.Next(0, 9);
-            MainForm.Line_4[R] = true;
-            PB_FARM.Invalidate();
+            //for (int i = 0; i < LocationCountY; i++)
+            //{
+            //    MainForm.Line_1[i] = false;
+            //    MainForm.Line_2[i] = false;
+            //    MainForm.Line_3[i] = false;
+            //    MainForm.Line_4[i] = false;
+            //}
+            //int R = r.Next(0, 9);
+            //MainForm.Line_1[R] = true;
+            //R = r.Next(0, 9);
+            //MainForm.Line_2[R] = true;
+            //R = r.Next(0, 9);
+            //MainForm.Line_3[R] = true;
+            //R = r.Next(0, 9);
+            //MainForm.Line_4[R] = true;
+            //PB_FARM.Invalidate();
 
             SetProgress(10);
 
@@ -152,24 +170,53 @@ namespace TEST1
             Image temp = Image.FromFile(strFilePath);
             img = temp as Bitmap;
             PB_GROWTH.BackgroundImage = temp;
+
+            BTN_HARVEST_START.SetText("Harvest Start");
+            //BTN_HARVEST_START.SetType(true);
+            BTN_HARVEST_START.Enabled = false;
+
+            BTN_PEST_START.SetText("Pest Start");
+            //BTN_HARVEST_START.SetType(true);
+            BTN_PEST_START.Enabled = false;
         }
 
+
+        public void InitPosition()
+        {
+            MovePosition temp = new MovePosition();
+
+            temp.position = Position.LINE1_START;
+            temp.X = (int)StartX + ((int)LineGap/2) + ((int)LocationSizeX * 2);
+            temp.Y = (int)StartY + (int)LocationSizeY*9;
+            temp.X += PB_FARM.Location.X;
+            temp.Y += PB_FARM.Location.Y;
+            temp.X -= PB_AGV1.Size.Width / 2;
+           // temp.Y -= PB_AGV1.Size.Height / 2;
+            MainForm.movePositions.Add(temp);
+            
+            temp.position = Position.LINE1_END;
+            temp.X = (int)StartX + ((int)LineGap/2) + ((int)LocationSizeX * 2);
+            temp.Y = (int)StartY;
+            temp.X += PB_FARM.Location.X;
+            temp.Y += PB_FARM.Location.Y;
+            temp.X -= PB_AGV1.Size.Width / 2;
+            //temp.Y -= PB_AGV1.Size.Height / 2;
+            MainForm.movePositions.Add(temp);
+            
+            temp.position = Position.LINE1_END2;
+            temp.X =(int)StartX + ((int)LineGap/2) + ((int)LocationSizeX * 2);
+            temp.Y = (int)StartY + (int)LocationSizeY * 9;
+            temp.X += PB_FARM.Location.X;
+            temp.Y += PB_FARM.Location.Y;
+            temp.X -= PB_AGV1.Size.Width / 2;
+            //temp.Y -= PB_AGV1.Size.Height / 2;
+            MainForm.movePositions.Add(temp);
+            MainForm.position = GetMovePosition(Position.STOP);
+        }
 
         private void Main_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(new Pen(Color.Silver), PB_FARM.Left - 1, PB_FARM.Top - 1, PB_FARM.Width + 2, PB_FARM.Height + 2);
-        }
-
-        private void button1_ButtonClick(object sender, EventArgs e)
-        {
-           //if(button1.GetCheck())
-           //{
-           //    MainForm.position = GetMovePosition(Position.STOP);
-           //}
-           //else
-           //{
-           //    MainForm.position = GetMovePosition(Position.LINE1_START);
-           //}
         }
 
         private void AGVMoveUP()
@@ -220,14 +267,14 @@ namespace TEST1
                }
                else
                {
-                   //if(MainForm.position.position == Position.LINE1_START)
-                   //{
-                   //    MainForm.position = GetMovePosition(Position.LINE1_END);
-                   //}
-                   //else if (MainForm.position.position == Position.LINE1_END)
-                   //{
-                   //    MainForm.position = GetMovePosition(Position.LINE1_END2);
-                   //}
+                   if(MainForm.position.position == Position.LINE1_START)
+                   {
+                       MainForm.position = GetMovePosition(Position.LINE1_END);
+                   }
+                   else if (MainForm.position.position == Position.LINE1_END)
+                   {
+                       MainForm.position = GetMovePosition(Position.LINE1_END2);
+                   }
 
                 }
            }
@@ -249,6 +296,8 @@ namespace TEST1
         {
             SolidBrush br = new SolidBrush(Color.FromArgb(100, Color.FromArgb(200, 20, 40)));
             SolidBrush br2 = new SolidBrush(Color.FromArgb(100, Color.BlueViolet));
+            SolidBrush br3 = new SolidBrush(Color.FromArgb(100, Color.Green));
+
             if (MainForm.position.position != Position.STOP)
             {
                 //e.Graphics.FillRectangle(br, new Rectangle(40, 10, LineSizeX, LineSizeY));
@@ -284,7 +333,6 @@ namespace TEST1
                     }
                 }
             }
-
 
             if (MainForm.Mode == SelectMode.HARVEST)
             {
@@ -328,6 +376,19 @@ namespace TEST1
                         if (MainForm.Line_4[i] && j == 1)
                         {
                             e.Graphics.FillRectangle(br, new Rectangle((int)StartX + ((int)LineGap * j) + ((int)LocationSizeX * 2 * j) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                        }
+
+                        if(MainForm.Growth_Check[j,i])
+                        {
+                            if(j%2==0)
+                            {
+                                e.Graphics.FillRectangle(br3, new Rectangle((int)StartX + ((int)LineGap * (j/2)) + ((int)LocationSizeX * 2 * (j / 2)), (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                            }
+                            else
+                            {
+                                e.Graphics.FillRectangle(br3, new Rectangle((int)StartX + ((int)LineGap * (j / 2)) + ((int)LocationSizeX * 2 * (j / 2)) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
+                            }
+
                         }
                     }
                 }
@@ -440,6 +501,11 @@ namespace TEST1
             CursorX = e.Location.X;
             CursorY = e.Location.Y;
 
+            if (MainForm.position.position != Position.STOP)
+            {
+                return;
+            }
+
             if (MainForm.Mode == SelectMode.GROWTH)
             {
                 for (int i = 0; i < LocationCountY; i++)
@@ -546,6 +612,14 @@ namespace TEST1
             CB_HARVEST_LINE2.Enabled = false;
             CB_GROWTH_TYPE.Enabled = true;
             BTN_GROWTH_CHECK.Enabled = true;
+            CB_PEST_LINE1.Enabled = false;
+            CB_PEST_LINE2.Enabled = false;
+
+            BTN_PEST_START.Enabled = false;
+            BTN_HARVEST_START.Enabled = false;
+            PN_GROWTH_INFO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            PN_HARVEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            PN_PEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
         }
 
         private void BTN_PEST_ButtonClick(object sender, EventArgs e)
@@ -560,6 +634,14 @@ namespace TEST1
             CB_HARVEST_LINE2.Enabled = false;
             CB_GROWTH_TYPE.Enabled = false;
             BTN_GROWTH_CHECK.Enabled = false;
+            CB_PEST_LINE1.Enabled = true;
+            CB_PEST_LINE2.Enabled = true;
+
+            BTN_HARVEST_START.Enabled = false;
+            BTN_PEST_START.Enabled = true;
+            PN_GROWTH_INFO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            PN_HARVEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            PN_PEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
         }
 
         private void BTN_HARVEST_ButtonClick(object sender, EventArgs e)
@@ -572,8 +654,17 @@ namespace TEST1
             PB_FARM.Invalidate();
             CB_HARVEST_LINE1.Enabled = true;
             CB_HARVEST_LINE2.Enabled = true;
+
+            CB_PEST_LINE1.Enabled = false;
+            CB_PEST_LINE2.Enabled = false;
             CB_GROWTH_TYPE.Enabled = false;
+            BTN_PEST_START.Enabled = false;
+
+            BTN_HARVEST_START.Enabled = true;
             BTN_GROWTH_CHECK.Enabled = false;
+            PN_GROWTH_INFO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            PN_HARVEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            PN_PEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
         }
 
         public void ResetButton()
@@ -670,28 +761,29 @@ namespace TEST1
             {
                 for (int i = 0; i < LocationCountY; i++)
                 {
-                    MainForm.Line_1[i] = false;
-                    MainForm.Line_2[i] = false;
-                    MainForm.Line_3[i] = false;
-                    MainForm.Line_4[i] = false;
+                    for (int j = 0; j < LocationCountX; j++)
+                    {
+                        MainForm.Growth_Check[j, i] = false;
+                    }
                 }
                 int temp = r.Next(0, 9);
-                MainForm.Line_1[temp] = true;
+                MainForm.Growth_Check[0, temp] = true;
+
                 temp = r.Next(0, 9);
-                MainForm.Line_2[temp] = true;
+                MainForm.Growth_Check[1, temp] = true;
                 temp = r.Next(0, 9);
-                MainForm.Line_3[temp] = true;
+                MainForm.Growth_Check[2, temp] = true;
                 temp = r.Next(0, 9);
-                MainForm.Line_4[temp] = true;
+                MainForm.Growth_Check[3, temp] = true;
             }
             else
             {
                 for (int i = 0; i < LocationCountY; i++)
                 {
-                    MainForm.Line_1[i] = true;
-                    MainForm.Line_2[i] = true;
-                    MainForm.Line_3[i] = true;
-                    MainForm.Line_4[i] = true;
+                    for (int j = 0; j < LocationCountX-2; j++)
+                    {
+                        MainForm.Growth_Check[j, i] = true;
+                    }
                 }
             }
             PB_FARM.Invalidate();
@@ -700,6 +792,34 @@ namespace TEST1
         private void PN_GROWTH_INFO_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(new Pen(Color.PaleVioletRed, 4), PB_GROWTH.Left - 2, PB_GROWTH.Top - 2, PB_GROWTH.Width + 4, PB_GROWTH.Height + 4);
+        }
+
+        private void BTN_HARVEST_START_ButtonClick(object sender, EventArgs e)
+        {
+            if(BTN_HARVEST_START.GetCheck())
+            {
+                BTN_HARVEST_START.SetCheck(true);
+                MainForm.position = GetMovePosition(Position.STOP);
+            }
+            else
+            {
+                BTN_HARVEST_START.SetCheck(false);
+                MainForm.position = GetMovePosition(Position.LINE1_START);
+            }
+        }
+
+        private void BTN_PEST_START_ButtonClick(object sender, EventArgs e)
+        {
+            if (BTN_PEST_START.GetCheck())
+            {
+                BTN_PEST_START.SetCheck(true);
+                MainForm.position = GetMovePosition(Position.STOP);
+            }
+            else
+            {
+                BTN_PEST_START.SetCheck(false);
+                MainForm.position = GetMovePosition(Position.LINE1_START);
+            }
         }
 
         private void ChartInit()

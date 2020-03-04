@@ -39,6 +39,9 @@ namespace TEST1
         public static List<bool> Line_5 = new List<bool>();
         public static List<bool> Line_6 = new List<bool>();
 
+        public static bool[,] Growth_Check = new bool[6, 9];
+
+
         public static SelectMode Mode = new SelectMode();
         public static MovePosition position = new MovePosition();
         public static List<MovePosition> movePositions = new List<MovePosition>();
@@ -108,21 +111,8 @@ namespace TEST1
             BTN_BOTTOM_MENU4.SetText("Alarm");
             BTN_BOTTOM_MENU5.SetText("Setup");
 
-            MovePosition temp = new MovePosition();
-            temp.position = Position.LINE1_START;
-            temp.X = 110;
-            temp.Y = 400;
-            movePositions.Add(temp);
-            temp.position = Position.LINE1_END;
-            temp.X = 110;
-            temp.Y = 100;
-            movePositions.Add(temp);
-            temp.position = Position.LINE1_END2;
-            temp.X = 110;
-            temp.Y = 400;
-            movePositions.Add(temp);
-            position = GetMovePosition(Position.STOP);
-            
+            main.InitPosition();
+
             //PN_MENU1.Region = Region.FromHrgn(CreateRoundRectRgn(30, 10, PN_MENU1.Width-50, PN_MENU1.Height-10, 30, 30));
             //PN_MENU2.Region = Region.FromHrgn(CreateRoundRectRgn(30, 10, PN_MENU2.Width - 50, PN_MENU2.Height - 10, 30, 30));
             //PN_MENU3.Region = Region.FromHrgn(CreateRoundRectRgn(30, 10, PN_MENU3.Width - 50, PN_MENU3.Height - 10, 30, 30));

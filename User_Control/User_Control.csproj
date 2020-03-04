@@ -272,6 +272,12 @@
     <Compile Include="GridView.Designer.cs">
       <DependentUpon>GridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="IpControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IpControl.Designer.cs">
+      <DependentUpon>IpControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -408,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GridView.resx">
       <DependentUpon>GridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IpControl.resx">
+      <DependentUpon>IpControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuButton.resx">
       <DependentUpon>MenuButton.cs</DependentUpon>

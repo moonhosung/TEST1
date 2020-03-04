@@ -37,23 +37,25 @@
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.AppearancePage.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
-            this.xtraTabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.xtraTabControl1.AppearancePage.Header.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.xtraTabControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+            this.xtraTabControl1.Appearance.Options.UseForeColor = true;
+            this.xtraTabControl1.AppearancePage.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.xtraTabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.xtraTabControl1.AppearancePage.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
             this.xtraTabControl1.AppearancePage.Header.Options.UseBackColor = true;
             this.xtraTabControl1.AppearancePage.Header.Options.UseFont = true;
             this.xtraTabControl1.AppearancePage.Header.Options.UseForeColor = true;
-            this.xtraTabControl1.AppearancePage.HeaderActive.BackColor = System.Drawing.SystemColors.Highlight;
-            this.xtraTabControl1.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xtraTabControl1.AppearancePage.HeaderActive.Options.UseBackColor = true;
+            this.xtraTabControl1.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtraTabControl1.AppearancePage.HeaderActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
             this.xtraTabControl1.AppearancePage.HeaderActive.Options.UseFont = true;
-            this.xtraTabControl1.AppearancePage.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
-            this.xtraTabControl1.AppearancePage.HeaderHotTracked.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.xtraTabControl1.AppearancePage.HeaderHotTracked.Options.UseBackColor = true;
+            this.xtraTabControl1.AppearancePage.HeaderActive.Options.UseForeColor = true;
+            this.xtraTabControl1.AppearancePage.HeaderHotTracked.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
             this.xtraTabControl1.AppearancePage.HeaderHotTracked.Options.UseForeColor = true;
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.LookAndFeel.SkinName = "Metropolis";
+            this.xtraTabControl1.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+            this.xtraTabControl1.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+            this.xtraTabControl1.LookAndFeel.SkinName = "DevExpress Style";
             this.xtraTabControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
@@ -65,21 +67,22 @@
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Appearance.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtraTabPage1.Appearance.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xtraTabPage1.Appearance.Header.Options.UseFont = true;
+            this.xtraTabPage1.Appearance.PageClient.BackColor = System.Drawing.Color.Black;
+            this.xtraTabPage1.Appearance.PageClient.Options.UseBackColor = true;
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(756, 745);
+            this.xtraTabPage1.Size = new System.Drawing.Size(752, 742);
             this.xtraTabPage1.Text = "xtraTabPage1";
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(756, 745);
+            this.xtraTabPage2.Size = new System.Drawing.Size(752, 742);
             this.xtraTabPage2.Text = "xtraTabPage2";
             // 
             // TabControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "TabControl";

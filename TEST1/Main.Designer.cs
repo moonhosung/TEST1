@@ -42,7 +42,7 @@ namespace TEST1
             this.PB_GROWTH = new System.Windows.Forms.PictureBox();
             this.CB_GROWTH_TYPE = new User_Control.ComboBox();
             this.BTN_GROWTH_CHECK = new User_Control.Button();
-            this.PN_GROWTH_LINE = new System.Windows.Forms.Panel();
+            this.PN_HARVEST = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CB_HARVEST_LINE2 = new User_Control.ComboBox();
             this.CB_HARVEST_LINE1 = new User_Control.ComboBox();
@@ -53,15 +53,24 @@ namespace TEST1
             this.BTN_GROWTH = new User_Control.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.BTN_HARVEST_START = new User_Control.Button();
+            this.PN_PEST = new System.Windows.Forms.Panel();
+            this.BTN_PEST_START = new User_Control.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.CB_PEST_LINE2 = new User_Control.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CB_PEST_LINE1 = new User_Control.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHART_GROWTH2)).BeginInit();
             this.PN_GROWTH_INFO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_GROWTH)).BeginInit();
-            this.PN_GROWTH_LINE.SuspendLayout();
+            this.PN_HARVEST.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_FARM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.PN_PEST.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -155,23 +164,24 @@ namespace TEST1
             this.BTN_GROWTH_CHECK.TabIndex = 15;
             this.BTN_GROWTH_CHECK.ButtonClick += new System.EventHandler(this.BTN_GROWTH_CHECK_ButtonClick);
             // 
-            // PN_GROWTH_LINE
+            // PN_HARVEST
             // 
-            this.PN_GROWTH_LINE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.PN_GROWTH_LINE.Controls.Add(this.pictureBox1);
-            this.PN_GROWTH_LINE.Controls.Add(this.CB_HARVEST_LINE2);
-            this.PN_GROWTH_LINE.Controls.Add(this.LB_HARVEST);
-            this.PN_GROWTH_LINE.Controls.Add(this.CB_HARVEST_LINE1);
-            this.PN_GROWTH_LINE.Location = new System.Drawing.Point(31, 708);
-            this.PN_GROWTH_LINE.Name = "PN_GROWTH_LINE";
-            this.PN_GROWTH_LINE.Size = new System.Drawing.Size(924, 234);
-            this.PN_GROWTH_LINE.TabIndex = 18;
+            this.PN_HARVEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.PN_HARVEST.Controls.Add(this.BTN_HARVEST_START);
+            this.PN_HARVEST.Controls.Add(this.pictureBox1);
+            this.PN_HARVEST.Controls.Add(this.CB_HARVEST_LINE2);
+            this.PN_HARVEST.Controls.Add(this.LB_HARVEST);
+            this.PN_HARVEST.Controls.Add(this.CB_HARVEST_LINE1);
+            this.PN_HARVEST.Location = new System.Drawing.Point(31, 708);
+            this.PN_HARVEST.Name = "PN_HARVEST";
+            this.PN_HARVEST.Size = new System.Drawing.Size(437, 234);
+            this.PN_HARVEST.TabIndex = 18;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::TEST1.Properties.Resources.common_ic_wave;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(216, 90);
+            this.pictureBox1.Location = new System.Drawing.Point(200, 90);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.TabIndex = 18;
@@ -179,10 +189,10 @@ namespace TEST1
             // 
             // CB_HARVEST_LINE2
             // 
-            this.CB_HARVEST_LINE2.Location = new System.Drawing.Point(273, 90);
+            this.CB_HARVEST_LINE2.Location = new System.Drawing.Point(250, 90);
             this.CB_HARVEST_LINE2.Margin = new System.Windows.Forms.Padding(0);
             this.CB_HARVEST_LINE2.Name = "CB_HARVEST_LINE2";
-            this.CB_HARVEST_LINE2.Size = new System.Drawing.Size(170, 32);
+            this.CB_HARVEST_LINE2.Size = new System.Drawing.Size(160, 32);
             this.CB_HARVEST_LINE2.TabIndex = 17;
             this.CB_HARVEST_LINE2.ButtonClick += new System.EventHandler(this.CB_HARVEST_LINE2_ButtonClick);
             // 
@@ -191,7 +201,7 @@ namespace TEST1
             this.CB_HARVEST_LINE1.Location = new System.Drawing.Point(26, 90);
             this.CB_HARVEST_LINE1.Margin = new System.Windows.Forms.Padding(0);
             this.CB_HARVEST_LINE1.Name = "CB_HARVEST_LINE1";
-            this.CB_HARVEST_LINE1.Size = new System.Drawing.Size(170, 32);
+            this.CB_HARVEST_LINE1.Size = new System.Drawing.Size(160, 32);
             this.CB_HARVEST_LINE1.TabIndex = 15;
             this.CB_HARVEST_LINE1.ButtonClick += new System.EventHandler(this.CB_GROWTH_LINE_ButtonClick);
             // 
@@ -263,14 +273,81 @@ namespace TEST1
             this.label2.Text = "Main";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BTN_HARVEST_START
+            // 
+            this.BTN_HARVEST_START.Location = new System.Drawing.Point(26, 148);
+            this.BTN_HARVEST_START.Name = "BTN_HARVEST_START";
+            this.BTN_HARVEST_START.Size = new System.Drawing.Size(160, 50);
+            this.BTN_HARVEST_START.TabIndex = 19;
+            this.BTN_HARVEST_START.ButtonClick += new System.EventHandler(this.BTN_HARVEST_START_ButtonClick);
+            // 
+            // PN_PEST
+            // 
+            this.PN_PEST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.PN_PEST.Controls.Add(this.BTN_PEST_START);
+            this.PN_PEST.Controls.Add(this.pictureBox3);
+            this.PN_PEST.Controls.Add(this.CB_PEST_LINE2);
+            this.PN_PEST.Controls.Add(this.label1);
+            this.PN_PEST.Controls.Add(this.CB_PEST_LINE1);
+            this.PN_PEST.Location = new System.Drawing.Point(498, 708);
+            this.PN_PEST.Name = "PN_PEST";
+            this.PN_PEST.Size = new System.Drawing.Size(457, 234);
+            this.PN_PEST.TabIndex = 22;
+            // 
+            // BTN_PEST_START
+            // 
+            this.BTN_PEST_START.Location = new System.Drawing.Point(26, 148);
+            this.BTN_PEST_START.Name = "BTN_PEST_START";
+            this.BTN_PEST_START.Size = new System.Drawing.Size(160, 50);
+            this.BTN_PEST_START.TabIndex = 19;
+            this.BTN_PEST_START.ButtonClick += new System.EventHandler(this.BTN_PEST_START_ButtonClick);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::TEST1.Properties.Resources.common_ic_wave;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(200, 90);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(38, 32);
+            this.pictureBox3.TabIndex = 18;
+            this.pictureBox3.TabStop = false;
+            // 
+            // CB_PEST_LINE2
+            // 
+            this.CB_PEST_LINE2.Location = new System.Drawing.Point(250, 90);
+            this.CB_PEST_LINE2.Margin = new System.Windows.Forms.Padding(0);
+            this.CB_PEST_LINE2.Name = "CB_PEST_LINE2";
+            this.CB_PEST_LINE2.Size = new System.Drawing.Size(160, 32);
+            this.CB_PEST_LINE2.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(25, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 32);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Pest";
+            // 
+            // CB_PEST_LINE1
+            // 
+            this.CB_PEST_LINE1.Location = new System.Drawing.Point(26, 90);
+            this.CB_PEST_LINE1.Margin = new System.Windows.Forms.Padding(0);
+            this.CB_PEST_LINE1.Name = "CB_PEST_LINE1";
+            this.CB_PEST_LINE1.Size = new System.Drawing.Size(160, 32);
+            this.CB_PEST_LINE1.TabIndex = 15;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.PN_PEST);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.PN_GROWTH_LINE);
+            this.Controls.Add(this.PN_HARVEST);
             this.Controls.Add(this.PN_GROWTH_INFO);
             this.Controls.Add(this.BTN_HARVEST);
             this.Controls.Add(this.BTN_PEST);
@@ -286,12 +363,15 @@ namespace TEST1
             this.PN_GROWTH_INFO.ResumeLayout(false);
             this.PN_GROWTH_INFO.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_GROWTH)).EndInit();
-            this.PN_GROWTH_LINE.ResumeLayout(false);
-            this.PN_GROWTH_LINE.PerformLayout();
+            this.PN_HARVEST.ResumeLayout(false);
+            this.PN_HARVEST.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AGV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_FARM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.PN_PEST.ResumeLayout(false);
+            this.PN_PEST.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -309,7 +389,7 @@ namespace TEST1
         private User_Control.ComboBox CB_HARVEST_LINE1;
         private System.Windows.Forms.Label LB_HARVEST;
         private System.Windows.Forms.Panel PN_GROWTH_INFO;
-        private System.Windows.Forms.Panel PN_GROWTH_LINE;
+        private System.Windows.Forms.Panel PN_HARVEST;
         private User_Control.Button BTN_GROWTH_CHECK;
         private User_Control.ComboBox CB_GROWTH_TYPE;
         private User_Control.ComboBox CB_HARVEST_LINE2;
@@ -317,5 +397,12 @@ namespace TEST1
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox PB_GROWTH;
+        private User_Control.Button BTN_HARVEST_START;
+        private System.Windows.Forms.Panel PN_PEST;
+        private User_Control.Button BTN_PEST_START;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private User_Control.ComboBox CB_PEST_LINE2;
+        private System.Windows.Forms.Label label1;
+        private User_Control.ComboBox CB_PEST_LINE1;
     }
 }
