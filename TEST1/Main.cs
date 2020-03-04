@@ -216,7 +216,7 @@ namespace TEST1
 
         private void Main_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawRectangle(new Pen(Color.Silver), PB_FARM.Left - 1, PB_FARM.Top - 1, PB_FARM.Width + 2, PB_FARM.Height + 2);
+            
         }
 
         private void AGVMoveUP()
@@ -708,37 +708,7 @@ namespace TEST1
             doughnutSeriesView1.TotalLabel.TextColor = Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
 
         }
-
-        private void CB_GROWTH_LINE_ButtonClick(object sender, EventArgs e)
-        {
-            CB_HARVEST_LINE2.ClearItem();
-            int num = CB_HARVEST_LINE1.GetSelectedIndex();
-            if(num==0)
-            {
-                CB_HARVEST_LINE2.InsertItem("Line 1");
-                CB_HARVEST_LINE2.InsertItem("Line 2");
-                CB_HARVEST_LINE2.InsertItem("Line 3");
-                CB_HARVEST_LINE2.InsertItem("Line 4");
-            }
-            if (num == 1)
-            {
-                CB_HARVEST_LINE2.InsertItem("Line 2");
-                CB_HARVEST_LINE2.InsertItem("Line 3");
-                CB_HARVEST_LINE2.InsertItem("Line 4");
-            }
-            if (num == 2)
-            {
-                CB_HARVEST_LINE2.InsertItem("Line 3");
-                CB_HARVEST_LINE2.InsertItem("Line 4");
-            }
-            if (num == 3)
-            {
-                CB_HARVEST_LINE2.InsertItem("Line 4");
-            }
-
-            CB_HARVEST_LINE2.SetSelectedIndex(0);
-            PB_FARM.Invalidate();
-        }
+        
 
         private void BTN_GROWTH_CHECK_ButtonClick(object sender, EventArgs e)
         {
@@ -821,6 +791,43 @@ namespace TEST1
                 MainForm.position = GetMovePosition(Position.LINE1_START);
             }
         }
+
+        private void xtraTabPage1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.Silver), PB_FARM.Left - 1, PB_FARM.Top - 1, PB_FARM.Width + 2, PB_FARM.Height + 2);
+        }
+
+        private void CB_HARVEST_LINE1_ButtonClick(object sender, EventArgs e)
+        {
+            CB_HARVEST_LINE2.ClearItem();
+            int num = CB_HARVEST_LINE1.GetSelectedIndex();
+            if (num == 0)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 1");
+                CB_HARVEST_LINE2.InsertItem("Line 2");
+                CB_HARVEST_LINE2.InsertItem("Line 3");
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+            if (num == 1)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 2");
+                CB_HARVEST_LINE2.InsertItem("Line 3");
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+            if (num == 2)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 3");
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+            if (num == 3)
+            {
+                CB_HARVEST_LINE2.InsertItem("Line 4");
+            }
+
+            CB_HARVEST_LINE2.SetSelectedIndex(0);
+            PB_FARM.Invalidate();
+        }
+        
 
         private void ChartInit()
         {
