@@ -28,6 +28,8 @@ namespace TEST1
         public static LoginDlg LoginPopup = LoginDlg.CreateInstance();
         public static OpacityForm opacityForm = OpacityForm.CreateInstance();
         public static Message_Popup Message_popup = Message_Popup.CreateInstance();
+        public static KeyPadDlg keypad_Dlg = KeyPadDlg.CreateInstance();
+        public static RobotInfo_Dlg robotInfo_Dlg = RobotInfo_Dlg.CreateInstance();
         
         private Communication Commni = Communication.CreateInstance();
 
@@ -41,6 +43,7 @@ namespace TEST1
 
         public static bool[,] Growth_Check = new bool[6, 9];
 
+        public static Factory_Info factory_Info = new Factory_Info(); // 공장내 정보
 
         public static SelectMode Mode = new SelectMode();
         public static MovePosition position = new MovePosition();
@@ -122,6 +125,9 @@ namespace TEST1
             BTN_MENU3.SetText("Setup");
 
             BTN_MENU1.SetSelect(true);
+
+            factory_Info.Humidity = 11.3;
+            factory_Info.Temperature = 22.7;
         }
 
 

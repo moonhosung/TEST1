@@ -122,6 +122,13 @@ namespace TEST1
             this.label13 = new System.Windows.Forms.Label();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.LB_HUMI = new System.Windows.Forms.Label();
+            this.LB_TEMP = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PB_AGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -164,6 +171,7 @@ namespace TEST1
             this.PB_AGV1.Size = new System.Drawing.Size(39, 44);
             this.PB_AGV1.TabIndex = 2;
             this.PB_AGV1.TabStop = false;
+            this.PB_AGV1.Click += new System.EventHandler(this.PB_AGV1_Click);
             // 
             // pictureBox2
             // 
@@ -204,6 +212,13 @@ namespace TEST1
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.label53);
+            this.xtraTabPage1.Controls.Add(this.LB_HUMI);
+            this.xtraTabPage1.Controls.Add(this.LB_TEMP);
+            this.xtraTabPage1.Controls.Add(this.label49);
+            this.xtraTabPage1.Controls.Add(this.label50);
+            this.xtraTabPage1.Controls.Add(this.label48);
+            this.xtraTabPage1.Controls.Add(this.label47);
             this.xtraTabPage1.Controls.Add(this.PN_PEST);
             this.xtraTabPage1.Controls.Add(this.PN_HARVEST);
             this.xtraTabPage1.Controls.Add(this.PN_GROWTH_INFO);
@@ -1368,6 +1383,76 @@ namespace TEST1
             this.label46.Text = "Robot 1";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label47.Location = new System.Drawing.Point(619, 508);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(168, 32);
+            this.label47.TabIndex = 30;
+            this.label47.Text = "Temperature ";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label48.Location = new System.Drawing.Point(619, 552);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(137, 32);
+            this.label48.TabIndex = 31;
+            this.label48.Text = "Humidity  ";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label49.Location = new System.Drawing.Point(778, 552);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(21, 32);
+            this.label49.TabIndex = 33;
+            this.label49.Text = ":";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label50.Location = new System.Drawing.Point(778, 508);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(21, 32);
+            this.label50.TabIndex = 32;
+            this.label50.Text = ":";
+            // 
+            // LB_HUMI
+            // 
+            this.LB_HUMI.AutoSize = true;
+            this.LB_HUMI.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LB_HUMI.Location = new System.Drawing.Point(806, 554);
+            this.LB_HUMI.Name = "LB_HUMI";
+            this.LB_HUMI.Size = new System.Drawing.Size(29, 32);
+            this.LB_HUMI.TabIndex = 35;
+            this.LB_HUMI.Text = "0";
+            // 
+            // LB_TEMP
+            // 
+            this.LB_TEMP.AutoSize = true;
+            this.LB_TEMP.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LB_TEMP.Location = new System.Drawing.Point(806, 510);
+            this.LB_TEMP.Name = "LB_TEMP";
+            this.LB_TEMP.Size = new System.Drawing.Size(29, 32);
+            this.LB_TEMP.TabIndex = 34;
+            this.LB_TEMP.Text = "0";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label53.Location = new System.Drawing.Point(851, 510);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(26, 32);
+            this.label53.TabIndex = 36;
+            this.label53.Text = "º";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1385,6 +1470,7 @@ namespace TEST1
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
             this.PN_PEST.ResumeLayout(false);
             this.PN_PEST.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1504,5 +1590,12 @@ namespace TEST1
         private System.Windows.Forms.Label label13;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label LB_HUMI;
+        private System.Windows.Forms.Label LB_TEMP;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
     }
 }

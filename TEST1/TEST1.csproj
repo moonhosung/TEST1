@@ -75,6 +75,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KeyPadDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyPadDlg.Designer.cs">
+      <DependentUpon>KeyPadDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RobotInfo_Dlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RobotInfo_Dlg.Designer.cs">
+      <DependentUpon>RobotInfo_Dlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="SetupForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="KeyPadDlg.resx">
+      <DependentUpon>KeyPadDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RobotInfo_Dlg.resx">
+      <DependentUpon>RobotInfo_Dlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,7 +28,6 @@ namespace TEST1
         private const int SW_SHOWNORMAL = 1;
         private const int SW_SHOWMINIMIZED = 2;
         private const int SW_SHOWMAXIMIZED = 3;
-        
 
         private static LoginDlg theInstance = null;
         public static LoginDlg CreateInstance()
@@ -123,6 +122,7 @@ namespace TEST1
         {
             TopMost = true;
             TopLevel = true;
+            CHK_MAINTENANCE.SetOnOff(true);
         }
 
         private void LoginDlg_Paint(object sender, PaintEventArgs e)
@@ -141,16 +141,12 @@ namespace TEST1
 
         private void CB_SUPERVISOR_ButtonClick(object sender, EventArgs e)
         {
-
             CB_MAINTENANCE.SetOnOff(false);
         }
 
         private void CB_MAINTENANCE_ButtonClick(object sender, EventArgs e)
         {
-
             CB_SUPERVISOR.SetOnOff(false);
         }
-
-
     }
 }

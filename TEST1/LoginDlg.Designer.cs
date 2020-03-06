@@ -39,8 +39,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkEdit1 = new User_Control.CheckEdit();
-            this.checkEdit2 = new User_Control.CheckEdit();
+            this.CHK_SUPERVISOR = new User_Control.CheckEdit();
+            this.CHK_MAINTENANCE = new User_Control.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -166,21 +166,21 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkEdit1
+            // CHK_SUPERVISOR
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(340, 283);
-            this.checkEdit1.Margin = new System.Windows.Forms.Padding(0);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Size = new System.Drawing.Size(24, 24);
-            this.checkEdit1.TabIndex = 70;
+            this.CHK_SUPERVISOR.Location = new System.Drawing.Point(340, 283);
+            this.CHK_SUPERVISOR.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_SUPERVISOR.Name = "CHK_SUPERVISOR";
+            this.CHK_SUPERVISOR.Size = new System.Drawing.Size(24, 24);
+            this.CHK_SUPERVISOR.TabIndex = 70;
             // 
-            // checkEdit2
+            // CHK_MAINTENANCE
             // 
-            this.checkEdit2.Location = new System.Drawing.Point(80, 283);
-            this.checkEdit2.Margin = new System.Windows.Forms.Padding(0);
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Size = new System.Drawing.Size(24, 24);
-            this.checkEdit2.TabIndex = 71;
+            this.CHK_MAINTENANCE.Location = new System.Drawing.Point(80, 283);
+            this.CHK_MAINTENANCE.Margin = new System.Windows.Forms.Padding(0);
+            this.CHK_MAINTENANCE.Name = "CHK_MAINTENANCE";
+            this.CHK_MAINTENANCE.Size = new System.Drawing.Size(24, 24);
+            this.CHK_MAINTENANCE.TabIndex = 71;
             // 
             // LoginDlg
             // 
@@ -188,8 +188,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(582, 425);
             this.ControlBox = false;
-            this.Controls.Add(this.checkEdit2);
-            this.Controls.Add(this.checkEdit1);
+            this.Controls.Add(this.CHK_MAINTENANCE);
+            this.Controls.Add(this.CHK_SUPERVISOR);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
@@ -229,7 +229,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
-        private User_Control.CheckEdit checkEdit1;
-        private User_Control.CheckEdit checkEdit2;
+        private User_Control.CheckEdit CHK_SUPERVISOR;
+        private User_Control.CheckEdit CHK_MAINTENANCE;
     }
 }

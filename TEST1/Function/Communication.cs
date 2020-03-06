@@ -1547,8 +1547,8 @@ namespace TEST1.Function
                 }
             }
             return msg;
-
         }
+
         public string SerialClose6(string PortName)
         {
             string msg = "";

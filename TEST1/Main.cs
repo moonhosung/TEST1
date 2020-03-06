@@ -291,12 +291,15 @@ namespace TEST1
             }
             return Result;
         }
-
+         
         private void PB_FARM_Paint(object sender, PaintEventArgs e)
         {
             SolidBrush br = new SolidBrush(Color.FromArgb(100, Color.FromArgb(200, 20, 40)));
             SolidBrush br2 = new SolidBrush(Color.FromArgb(100, Color.BlueViolet));
             SolidBrush br3 = new SolidBrush(Color.FromArgb(100, Color.Green));
+
+            //e.Graphics.DrawString("Temperature : "+MainForm.factory_Info.Temperature.ToString()+" ", new Font("맑은고딕", 16F), new SolidBrush(Color.FromArgb(255, Color.FromArgb(200, 20, 40))), new Point(PB_FARM.Size.Width-220, PB_FARM.Size.Height-80));
+            //e.Graphics.DrawString("Humidity       : " + MainForm.factory_Info.Humidity.ToString(), new Font("맑은고딕", 16F), new SolidBrush(Color.FromArgb(255, Color.FromArgb(200, 20, 40))), new Point(PB_FARM.Size.Width - 220, PB_FARM.Size.Height - 40));
 
             if (MainForm.position.position != Position.STOP)
             {
@@ -388,7 +391,6 @@ namespace TEST1
                             {
                                 e.Graphics.FillRectangle(br3, new Rectangle((int)StartX + ((int)LineGap * (j / 2)) + ((int)LocationSizeX * 2 * (j / 2)) + (int)LocationSizeX, (int)(StartY + (i * LocationSizeY)), (int)LocationSizeX, (int)LocationSizeY));
                             }
-
                         }
                     }
                 }
@@ -738,7 +740,6 @@ namespace TEST1
                 }
                 int temp = r.Next(0, 9);
                 MainForm.Growth_Check[0, temp] = true;
-
                 temp = r.Next(0, 9);
                 MainForm.Growth_Check[1, temp] = true;
                 temp = r.Next(0, 9);
@@ -827,7 +828,20 @@ namespace TEST1
             CB_HARVEST_LINE2.SetSelectedIndex(0);
             PB_FARM.Invalidate();
         }
-        
+
+        private void PB_AGV1_Click(object sender, EventArgs e)
+        {
+            RobotInfoOpen();
+        }
+
+        public void RobotInfoOpen()
+        {
+            MainForm.opacityForm.Start = true;
+            MainForm.opacityForm.ShowPopup();
+            MainForm.robotInfo_Dlg.DesktopLocation = new Point(1920 / 2 - (MainForm.robotInfo_Dlg.Width / 2), 1080 / 2 - (MainForm.robotInfo_Dlg.Height / 2));
+            MainForm.robotInfo_Dlg.StartPosition = FormStartPosition.Manual;
+            MainForm.robotInfo_Dlg.ShowDialog();
+        }
 
         private void ChartInit()
         {

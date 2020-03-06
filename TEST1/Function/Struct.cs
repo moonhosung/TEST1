@@ -33,6 +33,16 @@ namespace TEST1.Function
         HARVEST
     }
 
+    public struct Factory_Info
+    {
+        internal double Temperature; // 온도
+        internal double Humidity;    // 습도
+        internal double Co2;         // Co2
+        internal double Sunshine;    // 일조량
+    }
+
+
+
 
     public struct SetupIO_Struct
     {
